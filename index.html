@@ -1,30 +1,35 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Budd.ai - Your Knowledge, On WhatsApp</title>
+  <title>Austrian Founder Buddy - Dein KI-Assistent für Gründer & Unternehmer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
     :root {
-      --primary: #6C3CE1;
-      --primary-dark: #5228C0;
-      --accent: #25D366;
-      --dark: #0F1629;
-      --gray-900: #1A1F36;
-      --gray-700: #3D4663;
-      --gray-500: #6B7280;
-      --gray-300: #D1D5DB;
-      --gray-100: #F3F4F6;
+      --primary: #0f7d62;
+      --primary-dark: #0a5e4a;
+      --primary-light: #12a07d;
+      --whatsapp: #25D366;
+      --whatsapp-dark: #1EB854;
+      --dark: #0a1a14;
+      --gray-900: #1a2e26;
+      --gray-700: #3D5249;
+      --gray-500: #6B7D76;
+      --gray-300: #D1DBD7;
+      --gray-100: #F3F6F5;
       --white: #FFFFFF;
       --radius: 12px;
+      --radius-sm: 8px;
     }
 
     * { margin: 0; padding: 0; box-sizing: border-box; }
-
     html { scroll-behavior: smooth; }
 
     body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, sans-serif;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
       color: var(--gray-900);
       line-height: 1.6;
       background: var(--white);
@@ -36,8 +41,8 @@
       top: 0;
       left: 0;
       right: 0;
-      background: rgba(255, 255, 255, 0.95);
-      backdrop-filter: blur(10px);
+      background: rgba(255, 255, 255, 0.97);
+      backdrop-filter: blur(12px);
       z-index: 1000;
       border-bottom: 1px solid var(--gray-300);
     }
@@ -48,43 +53,42 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 1rem 2rem;
+      padding: 0.75rem 2rem;
     }
 
     .logo {
-      font-size: 1.5rem;
-      font-weight: 800;
-      color: var(--primary);
-      text-decoration: none;
-    }
-
-    .nav-links {
       display: flex;
-      gap: 2rem;
-      list-style: none;
       align-items: center;
-    }
-
-    .nav-links a {
       text-decoration: none;
-      color: var(--gray-700);
-      font-weight: 500;
-      font-size: 0.95rem;
-      transition: color 0.2s;
     }
 
-    .nav-links a:hover { color: var(--primary); }
+    .logo-mark { display: flex; align-items: center; height: 40px; }
+    .logo-mark svg { height: 40px; width: auto; }
 
     .btn {
-      display: inline-block;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
       padding: 0.75rem 1.75rem;
-      border-radius: 8px;
+      border-radius: var(--radius-sm);
       font-weight: 600;
       text-decoration: none;
       font-size: 0.95rem;
-      transition: all 0.2s;
+      transition: all 0.3s ease;
       cursor: pointer;
       border: none;
+      font-family: inherit;
+    }
+
+    .btn-whatsapp {
+      background: var(--whatsapp);
+      color: var(--white);
+    }
+
+    .btn-whatsapp:hover {
+      background: var(--whatsapp-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(37, 211, 102, 0.3);
     }
 
     .btn-primary {
@@ -94,7 +98,8 @@
 
     .btn-primary:hover {
       background: var(--primary-dark);
-      transform: translateY(-1px);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(15, 125, 98, 0.3);
     }
 
     .btn-outline {
@@ -108,32 +113,46 @@
       color: var(--white);
     }
 
-    .btn-whatsapp {
-      background: var(--accent);
+    .btn-waitlist {
+      background: var(--gray-700);
       color: var(--white);
     }
 
-    .btn-whatsapp:hover {
-      background: #1EB854;
+    .btn-waitlist:hover {
+      background: var(--gray-900);
+      transform: translateY(-2px);
+    }
+
+    .wa-icon {
+      width: 20px;
+      height: 20px;
+      fill: currentColor;
     }
 
     /* Sections */
-    section {
-      padding: 6rem 2rem;
-    }
+    section { padding: 6rem 2rem; }
 
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-    }
+    .container { max-width: 1200px; margin: 0 auto; }
 
     .section-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
       text-transform: uppercase;
       font-size: 0.8rem;
       font-weight: 700;
       letter-spacing: 2px;
       color: var(--primary);
       margin-bottom: 0.75rem;
+    }
+
+    .section-label::before {
+      content: "";
+      display: inline-block;
+      width: 10px;
+      height: 10px;
+      background: var(--primary);
+      border-radius: 50%;
     }
 
     .section-title {
@@ -149,6 +168,7 @@
       color: var(--gray-500);
       max-width: 700px;
       margin-bottom: 3rem;
+      line-height: 1.7;
     }
 
     .text-center { text-align: center; }
@@ -156,22 +176,34 @@
 
     /* Hero */
     #hero {
-      padding-top: 10rem;
+      padding-top: 9rem;
       padding-bottom: 6rem;
-      background: linear-gradient(135deg, #f5f0ff 0%, #eef2ff 50%, #f0fdf4 100%);
+      background: var(--white);
       text-align: center;
+      position: relative;
+    }
+
+    #hero::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--gray-300), transparent);
     }
 
     #hero .section-title {
-      font-size: 3.5rem;
-      max-width: 800px;
+      font-size: clamp(2.25rem, 5vw, 3.5rem);
+      max-width: 850px;
       margin: 0 auto 1.5rem;
     }
 
     #hero .section-subtitle {
-      font-size: 1.25rem;
-      max-width: 600px;
+      font-size: 1.2rem;
+      max-width: 650px;
       margin: 0 auto 2.5rem;
+      font-weight: 300;
     }
 
     .hero-buttons {
@@ -184,7 +216,7 @@
     /* Features Grid */
     .features-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 2rem;
     }
 
@@ -193,49 +225,48 @@
       border: 1px solid var(--gray-300);
       border-radius: var(--radius);
       padding: 2rem;
-      transition: transform 0.2s, box-shadow 0.2s;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
 
     .feature-card:hover {
       transform: translateY(-4px);
-      box-shadow: 0 12px 40px rgba(108, 60, 225, 0.1);
+      box-shadow: 0 12px 40px rgba(15, 125, 98, 0.08);
     }
 
     .feature-icon {
       width: 48px;
       height: 48px;
-      background: linear-gradient(135deg, var(--primary), #8B5CF6);
-      border-radius: 12px;
+      background: var(--primary);
+      border-radius: 10px;
       display: flex;
       align-items: center;
       justify-content: center;
       margin-bottom: 1.25rem;
       font-size: 1.5rem;
+      color: var(--white);
     }
 
     .feature-card h3 {
-      font-size: 1.15rem;
+      font-size: 1.1rem;
       margin-bottom: 0.5rem;
       color: var(--dark);
+      font-weight: 700;
     }
 
     .feature-card p {
       color: var(--gray-500);
       font-size: 0.95rem;
+      line-height: 1.7;
     }
 
-    /* How It Works */
+    /* Steps */
     .steps {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
       gap: 2rem;
-      counter-reset: step;
     }
 
-    .step {
-      text-align: center;
-      padding: 2rem 1.5rem;
-    }
+    .step { text-align: center; padding: 2rem 1.5rem; }
 
     .step-number {
       width: 56px;
@@ -251,15 +282,41 @@
       margin: 0 auto 1.25rem;
     }
 
-    .step h3 {
-      margin-bottom: 0.5rem;
-      color: var(--dark);
+    .step h3 { margin-bottom: 0.5rem; color: var(--dark); font-weight: 700; }
+    .step p { color: var(--gray-500); font-size: 0.95rem; line-height: 1.7; }
+
+    /* Target Group Tabs */
+    .target-tabs {
+      display: flex;
+      gap: 0.5rem;
+      justify-content: center;
+      margin-bottom: 3rem;
+      flex-wrap: wrap;
     }
 
-    .step p {
-      color: var(--gray-500);
+    .target-tab {
+      padding: 0.75rem 1.5rem;
+      border: 2px solid var(--gray-300);
+      border-radius: 50px;
+      background: var(--white);
+      color: var(--gray-700);
+      font-weight: 600;
       font-size: 0.95rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-family: inherit;
     }
+
+    .target-tab:hover { border-color: var(--primary); color: var(--primary); }
+
+    .target-tab.active {
+      background: var(--primary);
+      border-color: var(--primary);
+      color: var(--white);
+    }
+
+    .target-content { display: none; }
+    .target-content.active { display: block; }
 
     /* Dark section */
     .section-dark {
@@ -268,15 +325,17 @@
     }
 
     .section-dark .section-title { color: var(--white); }
-    .section-dark .section-subtitle { color: rgba(255,255,255,0.65); }
+    .section-dark .section-subtitle { color: rgba(255,255,255,0.6); }
+    .section-dark .section-label { color: var(--whatsapp); }
+    .section-dark .section-label::before { background: var(--whatsapp); }
     .section-dark .feature-card {
-      background: var(--gray-900);
+      background: rgba(255,255,255,0.05);
       border-color: rgba(255,255,255,0.1);
     }
+    .section-dark .feature-card:hover { box-shadow: 0 12px 40px rgba(0,0,0,0.2); }
     .section-dark .feature-card h3 { color: var(--white); }
     .section-dark .feature-card p { color: rgba(255,255,255,0.6); }
 
-    /* Light gray section */
     .section-gray { background: var(--gray-100); }
 
     /* Stats */
@@ -292,24 +351,52 @@
       padding: 2.5rem 2rem;
       text-align: center;
       border: 1px solid var(--gray-300);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
 
-    .stat-number {
-      font-size: 2.5rem;
-      font-weight: 800;
-      color: var(--primary);
-      margin-bottom: 0.25rem;
+    .stat-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 40px rgba(15, 125, 98, 0.08);
     }
 
-    .stat-label {
-      font-weight: 600;
-      color: var(--dark);
-      margin-bottom: 0.5rem;
+    .stat-number { font-size: 2.5rem; font-weight: 800; color: var(--primary); margin-bottom: 0.25rem; }
+    .stat-label { font-weight: 700; color: var(--dark); margin-bottom: 0.5rem; }
+    .stat-desc { color: var(--gray-500); font-size: 0.9rem; line-height: 1.6; }
+
+    /* Logo Bar */
+    .logo-bar {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 3rem;
+      flex-wrap: wrap;
+      padding: 2rem 0;
+      margin-top: 3rem;
+      border-top: 1px solid var(--gray-300);
     }
 
-    .stat-desc {
-      color: var(--gray-500);
-      font-size: 0.9rem;
+    .logo-bar-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+      opacity: 0.5;
+      transition: opacity 0.3s;
+    }
+
+    .logo-bar-item:hover { opacity: 0.8; }
+
+    .logo-bar-item .logo-placeholder {
+      width: 120px;
+      height: 48px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 0.8rem;
+      color: var(--gray-700);
+      text-align: center;
+      line-height: 1.2;
     }
 
     /* Testimonials */
@@ -324,6 +411,24 @@
       border: 1px solid var(--gray-300);
       border-radius: var(--radius);
       padding: 2rem;
+      position: relative;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .testimonial:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 40px rgba(15, 125, 98, 0.08);
+    }
+
+    .testimonial::before {
+      content: "\201E";
+      font-size: 4rem;
+      color: var(--primary);
+      opacity: 0.2;
+      position: absolute;
+      top: 0.5rem;
+      left: 1.5rem;
+      line-height: 1;
     }
 
     .testimonial blockquote {
@@ -331,23 +436,20 @@
       color: var(--gray-700);
       margin-bottom: 1.5rem;
       line-height: 1.7;
+      font-weight: 300;
+      padding-top: 1rem;
     }
 
-    .testimonial-author {
-      font-weight: 700;
-      color: var(--dark);
-    }
-
-    .testimonial-role {
-      font-size: 0.85rem;
-      color: var(--gray-500);
-    }
+    .testimonial-author { font-weight: 700; color: var(--dark); }
+    .testimonial-role { font-size: 0.85rem; color: var(--gray-500); }
 
     /* Pricing */
     .pricing-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
       gap: 2rem;
+      max-width: 800px;
+      margin: 0 auto;
     }
 
     .pricing-card {
@@ -356,11 +458,14 @@
       border-radius: var(--radius);
       padding: 2.5rem;
       position: relative;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
+
+    .pricing-card:hover { transform: translateY(-4px); }
 
     .pricing-card.featured {
       border-color: var(--primary);
-      box-shadow: 0 12px 40px rgba(108, 60, 225, 0.15);
+      box-shadow: 0 12px 40px rgba(15, 125, 98, 0.12);
     }
 
     .pricing-badge {
@@ -376,17 +481,19 @@
       font-weight: 700;
     }
 
-    .pricing-card h3 {
-      font-size: 1.5rem;
-      margin-bottom: 0.25rem;
-      color: var(--dark);
-    }
+    .pricing-card h3 { font-size: 1.5rem; margin-bottom: 0.25rem; color: var(--dark); }
 
     .pricing-card .price {
-      font-size: 1.1rem;
+      font-size: 2rem;
       color: var(--primary);
-      font-weight: 700;
-      margin-bottom: 0.5rem;
+      font-weight: 800;
+      margin-bottom: 0.25rem;
+    }
+
+    .pricing-card .price-note {
+      font-size: 0.85rem;
+      color: var(--gray-500);
+      margin-bottom: 1.5rem;
     }
 
     .pricing-card .tagline {
@@ -395,10 +502,7 @@
       margin-bottom: 1.5rem;
     }
 
-    .pricing-card ul {
-      list-style: none;
-      margin-bottom: 2rem;
-    }
+    .pricing-card ul { list-style: none; margin-bottom: 2rem; }
 
     .pricing-card ul li {
       padding: 0.4rem 0;
@@ -412,69 +516,15 @@
       content: "\2713";
       position: absolute;
       left: 0;
-      color: var(--accent);
+      color: var(--primary);
       font-weight: 700;
     }
 
-    .pricing-card .btn {
-      width: 100%;
-      text-align: center;
-    }
-
-    /* Comparison Table */
-    .comparison-table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-top: 3rem;
-      font-size: 0.95rem;
-    }
-
-    .comparison-table th,
-    .comparison-table td {
-      padding: 1rem 1.25rem;
-      text-align: left;
-      border-bottom: 1px solid var(--gray-300);
-    }
-
-    .comparison-table th {
-      background: var(--dark);
-      color: var(--white);
-      font-weight: 600;
-    }
-
-    .comparison-table th:first-child {
-      border-radius: 8px 0 0 0;
-    }
-
-    .comparison-table th:last-child {
-      border-radius: 0 8px 0 0;
-    }
-
-    .comparison-table tr:hover {
-      background: var(--gray-100);
-    }
-
-    .comparison-table td:not(:first-child) {
-      text-align: center;
-    }
-
-    .comparison-table th:not(:first-child) {
-      text-align: center;
-    }
-
-    .check { color: var(--accent); font-weight: 700; }
-    .cross { color: var(--gray-300); }
+    .pricing-card .btn { width: 100%; text-align: center; justify-content: center; }
 
     /* FAQ */
-    .faq-list {
-      max-width: 800px;
-      margin: 0 auto;
-    }
-
-    .faq-item {
-      border-bottom: 1px solid var(--gray-300);
-      padding: 1.5rem 0;
-    }
+    .faq-list { max-width: 800px; margin: 0 auto; }
+    .faq-item { border-bottom: 1px solid var(--gray-300); padding: 1.5rem 0; }
 
     .faq-question {
       font-weight: 700;
@@ -484,18 +534,18 @@
       justify-content: space-between;
       align-items: center;
       font-size: 1.05rem;
+      gap: 1rem;
     }
 
     .faq-question::after {
       content: "+";
       font-size: 1.5rem;
       color: var(--primary);
-      transition: transform 0.2s;
+      transition: transform 0.3s ease;
+      flex-shrink: 0;
     }
 
-    .faq-item.open .faq-question::after {
-      transform: rotate(45deg);
-    }
+    .faq-item.open .faq-question::after { transform: rotate(45deg); }
 
     .faq-answer {
       max-height: 0;
@@ -505,40 +555,65 @@
       line-height: 1.7;
     }
 
-    .faq-item.open .faq-answer {
-      max-height: 300px;
-      padding-top: 1rem;
+    .faq-item.open .faq-answer { max-height: 300px; padding-top: 1rem; }
+
+    /* Contact Form */
+    .contact-form {
+      max-width: 600px;
+      margin: 0 auto;
     }
+
+    .form-group { margin-bottom: 1.25rem; }
+
+    .form-group label {
+      display: block;
+      font-weight: 600;
+      color: var(--dark);
+      margin-bottom: 0.4rem;
+      font-size: 0.95rem;
+    }
+
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+      width: 100%;
+      padding: 0.85rem 1rem;
+      border: 1px solid var(--gray-300);
+      border-radius: var(--radius-sm);
+      font-family: inherit;
+      font-size: 0.95rem;
+      color: var(--gray-900);
+      background: var(--white);
+      transition: border-color 0.2s;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus,
+    .form-group select:focus {
+      outline: none;
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(15, 125, 98, 0.1);
+    }
+
+    .form-group textarea { resize: vertical; min-height: 120px; }
 
     /* CTA Banner */
     .cta-banner {
-      background: linear-gradient(135deg, var(--primary), #8B5CF6);
+      background: var(--primary);
       color: var(--white);
       text-align: center;
       padding: 5rem 2rem;
     }
 
     .cta-banner .section-title { color: var(--white); }
-    .cta-banner .section-subtitle {
-      color: rgba(255,255,255,0.8);
-      margin: 0 auto 2rem;
-    }
+    .cta-banner .section-label { color: rgba(255,255,255,0.7); }
+    .cta-banner .section-label::before { background: rgba(255,255,255,0.7); }
+    .cta-banner .section-subtitle { color: rgba(255,255,255,0.8); margin: 0 auto 2rem; }
 
     /* Imprint */
-    .imprint-content {
-      max-width: 700px;
-    }
-
-    .imprint-content dt {
-      font-weight: 700;
-      color: var(--dark);
-      margin-top: 1.25rem;
-    }
-
-    .imprint-content dd {
-      color: var(--gray-500);
-      margin-bottom: 0.75rem;
-    }
+    .imprint-content { max-width: 700px; }
+    .imprint-content dt { font-weight: 700; color: var(--dark); margin-top: 1.25rem; }
+    .imprint-content dd { color: var(--gray-500); margin-bottom: 0.75rem; }
 
     /* Footer */
     footer {
@@ -556,11 +631,7 @@
       margin-bottom: 3rem;
     }
 
-    .footer-brand p {
-      margin-top: 1rem;
-      font-size: 0.9rem;
-      line-height: 1.7;
-    }
+    .footer-brand p { margin-top: 1rem; font-size: 0.9rem; line-height: 1.7; }
 
     footer h4 {
       color: var(--white);
@@ -570,10 +641,7 @@
       letter-spacing: 1px;
     }
 
-    footer ul {
-      list-style: none;
-    }
-
+    footer ul { list-style: none; }
     footer ul li { margin-bottom: 0.5rem; }
 
     footer ul a {
@@ -594,46 +662,13 @@
       font-size: 0.85rem;
     }
 
-    /* Hamburger menu */
-    .hamburger {
-      display: none;
-      background: none;
-      border: none;
-      font-size: 1.5rem;
-      cursor: pointer;
-      color: var(--gray-900);
-    }
-
     /* Responsive */
     @media (max-width: 768px) {
-      .hamburger { display: block; }
-
-      .nav-links {
-        display: none;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        right: 0;
-        flex-direction: column;
-        background: var(--white);
-        padding: 1rem 2rem 2rem;
-        border-bottom: 1px solid var(--gray-300);
-        gap: 1rem;
-      }
-
-      .nav-links.open { display: flex; }
-
-      #hero .section-title { font-size: 2.25rem; }
-
-      .section-title { font-size: 2rem; }
-
-      .footer-grid {
-        grid-template-columns: 1fr;
-        gap: 2rem;
-      }
-
-      .comparison-table { font-size: 0.8rem; }
-      .comparison-table th, .comparison-table td { padding: 0.6rem; }
+      #hero .section-title { font-size: 2rem; }
+      .section-title { font-size: 1.75rem; }
+      .footer-grid { grid-template-columns: 1fr; gap: 2rem; }
+      .pricing-grid { max-width: 100%; }
+      .logo-bar { gap: 1.5rem; }
     }
   </style>
 </head>
@@ -642,349 +677,375 @@
 <!-- Navigation -->
 <nav>
   <div class="nav-inner">
-    <a href="#hero" class="logo">Budd.ai</a>
-    <button class="hamburger" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Menu">&#9776;</button>
-    <ul class="nav-links">
-      <li><a href="#hero">Home</a></li>
-      <li><a href="#consultants">For Consultants</a></li>
-      <li><a href="#organizations">For Organizations</a></li>
-      <li><a href="#pricing">Pricing</a></li>
-      <li><a href="#imprint">Imprint</a></li>
-      <li><a href="mailto:hello@buddai.me" class="btn btn-primary">Request Demo</a></li>
-    </ul>
+    <a href="#hero" class="logo">
+      <span class="logo-mark">
+        <svg viewBox="0 0 240 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect width="240" height="80" rx="4" fill="#0f7d62"/>
+          <line x1="80" y1="4" x2="80" y2="76" stroke="white" stroke-width="3"/>
+          <line x1="160" y1="4" x2="160" y2="76" stroke="white" stroke-width="3"/>
+          <text x="40" y="60" text-anchor="middle" fill="white" font-family="Inter, sans-serif" font-weight="800" font-size="56">A</text>
+          <text x="120" y="60" text-anchor="middle" fill="white" font-family="Inter, sans-serif" font-weight="800" font-size="56">F</text>
+          <text x="200" y="60" text-anchor="middle" fill="white" font-family="Inter, sans-serif" font-weight="800" font-size="56">B</text>
+          <rect x="0" y="80" width="240" height="20" rx="0" fill="white" stroke="#0f7d62" stroke-width="2"/>
+          <text x="120" y="96" text-anchor="middle" fill="#0a1a14" font-family="Inter, sans-serif" font-weight="800" font-size="12" letter-spacing="2">AUSTRIAN FOUNDER BUDDY</text>
+        </svg>
+      </span>
+    </a>
+    <a href="https://wa.me/4366012345678" target="_blank" rel="noopener" class="btn btn-whatsapp">
+      <svg class="wa-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      Jetzt chatten
+    </a>
   </div>
 </nav>
 
 <!-- HERO -->
 <section id="hero">
   <div class="container">
-    <p class="section-label">Your Knowledge, On WhatsApp</p>
-    <h1 class="section-title">Turn your documents and videos into intelligent WhatsApp assistants</h1>
-    <p class="section-subtitle">Upload your content, let AI learn from it, and share it via WhatsApp. Your knowledge, available 24/7 - no code required.</p>
+    <p class="section-label">Geprüftes Wissen, direkt auf WhatsApp</p>
+    <h1 class="section-title">Dein KI-Assistent für Gründung & Unternehmertum in Österreich</h1>
+    <p class="section-subtitle">Der Austrian Founder Buddy greift auf hunderte kuratierte und verifizierte Quellen zu - und liefert dir geprüfte Antworten zu Gründung, Recht, Steuern und Förderungen. Direkt per WhatsApp.</p>
     <div class="hero-buttons">
-      <a href="mailto:hello@buddai.me" class="btn btn-primary">Request a Demo</a>
-      <a href="#pricing" class="btn btn-outline">See Pricing</a>
+      <a href="https://wa.me/4366012345678" target="_blank" rel="noopener" class="btn btn-whatsapp">
+        <svg class="wa-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Jetzt chatten
+      </a>
+      <a href="#pricing" class="btn btn-outline">Preise ansehen</a>
     </div>
   </div>
 </section>
 
-<!-- HOME: Features -->
+<!-- Für wen: Zielgruppen -->
+<section id="zielgruppen" class="section-gray">
+  <div class="container">
+    <div class="text-center">
+      <p class="section-label">Für wen ist der Founder Buddy?</p>
+      <h2 class="section-title">Geprüftes Wissen für jede Phase deines Unternehmens</h2>
+      <p class="section-subtitle mx-auto">Egal ob du gerade gründest, dein Unternehmen führst oder als Geschäftsführer Verantwortung trägst - der Austrian Founder Buddy hat die passenden Antworten.</p>
+    </div>
+
+    <div class="target-tabs">
+      <button class="target-tab active" onclick="switchTab('gruender')">Für Gründer</button>
+      <button class="target-tab" onclick="switchTab('unternehmer')">Für Unternehmerinnen</button>
+      <button class="target-tab" onclick="switchTab('gf')">Für Geschäftsführer</button>
+    </div>
+
+    <!-- Gründer -->
+    <div class="target-content active" id="tab-gruender">
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon">&#128640;</div>
+          <h3>Gründungswissen sofort abrufbar</h3>
+          <p>Gewerbeanmeldung, Rechtsform-Wahl, SVS-Anmeldung, Finanzamt - alle Schritte geprüft und verständlich erklärt.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">&#128176;</div>
+          <h3>Förderungen & Finanzierung</h3>
+          <p>Überblick über aktuelle Förderungen, Zuschüsse und Finanzierungsmöglichkeiten für Gründer in Österreich.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">&#128220;</div>
+          <h3>Rechtliche Grundlagen</h3>
+          <p>Von der GmbH-Gründung bis zum Einzelunternehmen - geprüfte Informationen zu allen Rechtsformen und Pflichten.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Unternehmerinnen -->
+    <div class="target-content" id="tab-unternehmer">
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon">&#128200;</div>
+          <h3>Wachstum & Skalierung</h3>
+          <p>Strategien, steuerliche Optimierung und operative Fragen für bestehende Unternehmen - auf Knopfdruck verfügbar.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">&#128101;</div>
+          <h3>Mitarbeiter & Arbeitsrecht</h3>
+          <p>Antworten zu Dienstverträgen, Kollektivverträgen, Lohnnebenkosten und Personalmanagement in Österreich.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">&#128202;</div>
+          <h3>Steuern & Buchhaltung</h3>
+          <p>USt-Voranmeldung, Einnahmen-Ausgaben-Rechnung, Bilanzierung - komplexe Themen einfach erklärt.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Geschäftsführer -->
+    <div class="target-content" id="tab-gf">
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon">&#128188;</div>
+          <h3>GmbH-Geschäftsführung</h3>
+          <p>Pflichten, Haftung, Gesellschafterversammlungen und Corporate Governance - rechtssicher zusammengefasst.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">&#128737;</div>
+          <h3>Compliance & Recht</h3>
+          <p>DSGVO, Gewerberecht, Unternehmensrecht und branchenspezifische Vorschriften schnell nachschlagen.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">&#128178;</div>
+          <h3>Steuerstrategie</h3>
+          <p>KöSt, Gruppenbesteuerung, Betriebsausgaben - geprüfte Informationen für strategische Steuerplanung.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Was der Founder Buddy kann -->
 <section id="features">
   <div class="container">
-    <p class="section-label">Capabilities</p>
-    <h2 class="section-title">What Budd.ai Can Do</h2>
-    <p class="section-subtitle">Powerful features to transform your knowledge into accessible intelligence.</p>
+    <p class="section-label">Funktionen</p>
+    <h2 class="section-title">Was der Austrian Founder Buddy kann</h2>
+    <p class="section-subtitle">Leistungsstarke KI-Funktionen, die verifiziertes Wissen für dich zugänglich machen.</p>
     <div class="features-grid">
       <div class="feature-card">
         <div class="feature-icon">&#128172;</div>
-        <h3>Smart Replies</h3>
-        <p>AI-powered responses based on your uploaded documents and content. Accurate, contextual, and instant.</p>
+        <h3>Intelligente Antworten</h3>
+        <p>KI-gestützte Antworten basierend auf kuratierten und geprüften Quellen. Präzise, kontextbezogen und sofort via WhatsApp.</p>
       </div>
       <div class="feature-card">
         <div class="feature-icon">&#127909;</div>
-        <h3>Video Timestamps</h3>
-        <p>Automatically references exact timestamps in your videos so users find the right answer instantly.</p>
+        <h3>Video-Zeitstempel</h3>
+        <p>Verweist automatisch auf exakte Zeitstempel in Schulungsvideos, damit du die richtige Antwort sofort findest.</p>
       </div>
       <div class="feature-card">
         <div class="feature-icon">&#127908;</div>
-        <h3>Voice Messages</h3>
-        <p>Respond to voice messages and deliver spoken answers - making knowledge truly accessible.</p>
+        <h3>Sprachnachrichten</h3>
+        <p>Stelle deine Frage per Sprachnachricht und erhalte eine gesprochene Antwort - so einfach wie ein Gespräch.</p>
       </div>
       <div class="feature-card">
         <div class="feature-icon">&#128196;</div>
-        <h3>Document Understanding</h3>
-        <p>Upload PDFs, Word docs, PowerPoints, and more. Budd.ai extracts and understands the content automatically.</p>
+        <h3>Quellenangaben</h3>
+        <p>Jede Antwort mit Verweis auf die zugrundeliegende Quelle - für maximale Transparenz und Nachvollziehbarkeit.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- HOME: How it Works -->
-<section class="section-gray" id="how-it-works">
+<!-- So funktioniert's -->
+<section id="how-it-works" class="section-gray">
   <div class="container">
     <div class="text-center">
-      <p class="section-label">How It Works</p>
-      <h2 class="section-title">Up and Running in Minutes</h2>
-      <p class="section-subtitle mx-auto">Get your AI assistant live in three simple steps - no technical knowledge required.</p>
+      <p class="section-label">So funktioniert's</p>
+      <h2 class="section-title">In wenigen Minuten einsatzbereit</h2>
+      <p class="section-subtitle mx-auto">Starte sofort mit dem Austrian Founder Buddy - kein Download, keine Installation, keine Registrierung nötig.</p>
     </div>
     <div class="steps">
       <div class="step">
         <div class="step-number">1</div>
-        <h3>Upload Your Content</h3>
-        <p>Add your PDFs, videos, past client Q&As, and any materials that capture your expertise.</p>
+        <h3>WhatsApp öffnen</h3>
+        <p>Klicke auf „Jetzt chatten" und öffne den Chat mit dem Austrian Founder Buddy direkt in WhatsApp.</p>
       </div>
       <div class="step">
         <div class="step-number">2</div>
-        <h3>AI Learns From It</h3>
-        <p>Our AI learns your style, tone, and methodology. Review and refine responses until perfect.</p>
+        <h3>Frage stellen</h3>
+        <p>Schreibe oder sprich deine Frage ein - zu Gründung, Steuern, Förderungen, Recht oder Unternehmertum.</p>
       </div>
       <div class="step">
         <div class="step-number">3</div>
-        <h3>Share on WhatsApp</h3>
-        <p>Send your clients a WhatsApp link. They ask questions, your assistant responds instantly.</p>
-      </div>
-      <div class="step">
-        <div class="step-number">4</div>
-        <h3>Grow &amp; Scale</h3>
-        <p>Handle more clients, save time, and increase revenue - all on autopilot.</p>
+        <h3>Geprüfte Antwort erhalten</h3>
+        <p>Erhalte sofort eine fundierte Antwort mit Quellenangabe, basierend auf verifizierten österreichischen Quellen.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- FOR CONSULTANTS -->
-<section id="consultants" class="section-dark">
+<!-- Für Dienstleister -->
+<section id="dienstleister" class="section-dark">
   <div class="container">
-    <p class="section-label">For Consultants</p>
-    <h2 class="section-title">Scale your consulting with instant intelligence</h2>
-    <p class="section-subtitle">Transform your knowledge into a 24/7 assistant. Answer client questions, share insights, and grow your practice - without working more hours.</p>
+    <p class="section-label">Für Dienstleister</p>
+    <h2 class="section-title">Unterstütze deine Beratung mit sofortiger Intelligenz</h2>
+    <p class="section-subtitle">Greife in Sekunden auf verifizierte Ressourcen zu und nutze sie direkt in deiner Beratung. Der Founder Buddy wird zum verlässlichen Recherche-Partner für Steuerberater, Unternehmensberater und Rechtsanwälte.</p>
     <div class="features-grid">
       <div class="feature-card">
         <div class="feature-icon">&#9201;</div>
-        <h3>Save 10+ Hours Weekly</h3>
-        <p>Stop answering the same questions. Your assistant handles FAQs, freeing you for billable work.</p>
+        <h3>Sofortiger Zugriff auf Fachwissen</h3>
+        <p>Statt stundenlanger Recherche: Geprüfte Antworten in Sekunden. Mehr Zeit für die eigentliche Beratungsarbeit.</p>
       </div>
       <div class="feature-card">
         <div class="feature-icon">&#128200;</div>
-        <h3>Scale Without Hiring</h3>
-        <p>Serve 10x more clients without adding team members. Your knowledge works 24/7.</p>
+        <h3>Immer aktuelle Quellen</h3>
+        <p>Kuratierte Datenbank mit laufend aktualisierten Informationen von offiziellen österreichischen Institutionen.</p>
       </div>
       <div class="feature-card">
         <div class="feature-icon">&#9889;</div>
-        <h3>Never Miss a Lead</h3>
-        <p>Respond instantly to prospects, even when you're in meetings or on vacation.</p>
-      </div>
-      <div class="feature-card">
-        <div class="feature-icon">&#128483;</div>
-        <h3>Your Voice, Automated</h3>
-        <p>The assistant learns your tone and style, maintaining your personal brand.</p>
+        <h3>Schnellere Kundenbetreuung</h3>
+        <p>Beantworte Kundenfragen fundiert und schnell - mit verifizierten Informationen direkt zur Hand.</p>
       </div>
       <div class="feature-card">
         <div class="feature-icon">&#128203;</div>
-        <h3>Reusable Templates</h3>
-        <p>Create response templates once, use them infinitely. Update anytime.</p>
-      </div>
-      <div class="feature-card">
-        <div class="feature-icon">&#127912;</div>
-        <h3>White-Label Ready</h3>
-        <p>Brand the assistant as yours. Your logo, your colors, your identity.</p>
+        <h3>Nachvollziehbare Quellen</h3>
+        <p>Jede Information mit Quellenangabe - ideal für die dokumentierte und rechtssichere Beratung.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- Testimonials -->
+<!-- Verifizierte Quellen -->
+<section id="quellen" class="section-gray">
+  <div class="container">
+    <div class="text-center">
+      <p class="section-label">Verifizierte Quellen</p>
+      <h2 class="section-title">Zugriff auf das Wissen verifizierter Organisationen</h2>
+      <p class="section-subtitle mx-auto">Der Austrian Founder Buddy bezieht sein Wissen aus offiziellen und geprüften Quellen renommierter österreichischer Institutionen und Organisationen.</p>
+    </div>
+
+    <div class="stats-grid" style="margin-bottom: 2rem;">
+      <div class="stat-card">
+        <div class="stat-number">100+</div>
+        <div class="stat-label">Kuratierte Quellen</div>
+        <div class="stat-desc">Geprüfte Dokumente, Leitfäden und Informationsseiten offizieller Stellen</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">24/7</div>
+        <div class="stat-label">Verfügbar</div>
+        <div class="stat-desc">Antworten rund um die Uhr, direkt auf WhatsApp - auch am Wochenende</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">100%</div>
+        <div class="stat-label">Quellenbasiert</div>
+        <div class="stat-desc">Jede Antwort mit nachvollziehbarer Quellenangabe für maximale Transparenz</div>
+      </div>
+    </div>
+
+    <!-- Logo-Leiste -->
+    <div class="logo-bar">
+      <div class="logo-bar-item">
+        <div class="logo-placeholder">
+          <svg viewBox="0 0 120 48" width="120" height="48"><rect width="120" height="48" rx="4" fill="#e8e4df"/><text x="60" y="28" text-anchor="middle" font-family="Inter, sans-serif" font-weight="700" font-size="9" fill="#3D5249">WIRTSCHAFTS-</text><text x="60" y="40" text-anchor="middle" font-family="Inter, sans-serif" font-weight="700" font-size="9" fill="#3D5249">KAMMER</text></svg>
+        </div>
+      </div>
+      <div class="logo-bar-item">
+        <div class="logo-placeholder">
+          <svg viewBox="0 0 120 48" width="120" height="48"><rect width="120" height="48" rx="4" fill="#e8e4df"/><text x="60" y="32" text-anchor="middle" font-family="Inter, sans-serif" font-weight="700" font-size="11" fill="#3D5249">i2b</text></svg>
+        </div>
+      </div>
+      <div class="logo-bar-item">
+        <div class="logo-placeholder">
+          <svg viewBox="0 0 120 48" width="120" height="48"><rect width="120" height="48" rx="4" fill="#e8e4df"/><text x="60" y="32" text-anchor="middle" font-family="Inter, sans-serif" font-weight="700" font-size="10" fill="#3D5249">STARTUP NOW</text></svg>
+        </div>
+      </div>
+      <div class="logo-bar-item">
+        <div class="logo-placeholder">
+          <svg viewBox="0 0 120 48" width="120" height="48"><rect width="120" height="48" rx="4" fill="#e8e4df"/><text x="60" y="32" text-anchor="middle" font-family="Inter, sans-serif" font-weight="700" font-size="10" fill="#3D5249">AWS</text></svg>
+        </div>
+      </div>
+      <div class="logo-bar-item">
+        <div class="logo-placeholder">
+          <svg viewBox="0 0 120 48" width="120" height="48"><rect width="120" height="48" rx="4" fill="#e8e4df"/><text x="60" y="28" text-anchor="middle" font-family="Inter, sans-serif" font-weight="700" font-size="9" fill="#3D5249">JUNGE</text><text x="60" y="40" text-anchor="middle" font-family="Inter, sans-serif" font-weight="700" font-size="9" fill="#3D5249">WIRTSCHAFT</text></svg>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Kundenstimmen -->
 <section id="testimonials">
   <div class="container">
     <div class="text-center">
-      <p class="section-label">Testimonials</p>
-      <h2 class="section-title">Loved by Experts</h2>
-      <p class="section-subtitle mx-auto">See what our customers are saying about us.</p>
+      <p class="section-label">Kundenstimmen</p>
+      <h2 class="section-title">Von Gründern und Unternehmern geschätzt</h2>
+      <p class="section-subtitle mx-auto">Das sagen unsere Nutzer über den Austrian Founder Buddy.</p>
     </div>
     <div class="testimonials-grid">
       <div class="testimonial">
-        <blockquote>"Managing multiple clients, I used to spend hours answering the same questions. BuddAI let me encode my expertise into an assistant my clients can query any time - it's the closest thing to scaling yourself that I've found."</blockquote>
+        <blockquote>„Ich habe früher Stunden damit verbracht, die richtigen Informationen zur Gründung zu finden. Mit dem Founder Buddy bekomme ich geprüfte Antworten in Sekunden - direkt auf WhatsApp."</blockquote>
         <div class="testimonial-author">Andreas Kraus</div>
-        <div class="testimonial-role">Entrepreneur & Business Consultant</div>
+        <div class="testimonial-role">Unternehmer & Unternehmensberater</div>
       </div>
       <div class="testimonial">
-        <blockquote>"BuddAI transformed how we communicate with our stakeholders. We can promote sports and activities now directly within the WhatsApp app of our users and provide instant, consistent answers at scale - without effort."</blockquote>
+        <blockquote>„Als Generalsekretär eines Verbandes schätze ich die Möglichkeit, verifizierte Informationen schnell und unkompliziert an unsere Mitglieder weiterzugeben. Der Founder Buddy macht genau das möglich."</blockquote>
         <div class="testimonial-author">Nik Kleemann</div>
-        <div class="testimonial-role">General Secretary - OBSV</div>
+        <div class="testimonial-role">Generalsekretär - ÖBSV</div>
       </div>
       <div class="testimonial">
-        <blockquote>"BuddAI feels like having a digital version of myself available at all times, answering reliably based on the sources I provide. It elevates my client experience while freeing up hours every week - that's a game changer."</blockquote>
+        <blockquote>„Endlich eine Lösung, die nicht einfach irgendetwas aus dem Internet zusammenwürfelt, sondern auf geprüfte österreichische Quellen zugreift. Das gibt Sicherheit bei wichtigen Entscheidungen."</blockquote>
         <div class="testimonial-author">N.N.</div>
-        <div class="testimonial-role">Manager Creative Industry</div>
+        <div class="testimonial-role">Gründerin, Wien</div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- FOR ORGANIZATIONS -->
-<section id="organizations" class="section-gray">
-  <div class="container">
-    <p class="section-label">For Organizations</p>
-    <h2 class="section-title">Unlock your team's collective knowledge</h2>
-    <p class="section-subtitle">Transform scattered documents, training videos, and tribal knowledge into an intelligent assistant your entire organization can access instantly.</p>
-
-    <!-- Stats -->
-    <div class="stats-grid" style="margin-bottom: 4rem;">
-      <div class="stat-card">
-        <div class="stat-number">87%</div>
-        <div class="stat-label">Faster Onboarding</div>
-        <div class="stat-desc">Reduced new hire ramp time from 6 weeks to under 1 week</div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-number">$2M</div>
-        <div class="stat-label">Cost Savings</div>
-        <div class="stat-desc">Saved annually by reducing support tickets by 70%</div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-number">10x</div>
-        <div class="stat-label">Knowledge Access</div>
-        <div class="stat-desc">Increased employee knowledge retrieval by 10x</div>
-      </div>
-    </div>
-
-    <!-- Enterprise Features -->
-    <div class="features-grid">
-      <div class="feature-card">
-        <div class="feature-icon">&#128274;</div>
-        <h3>Role-Based Access</h3>
-        <p>Control permissions by team, department, or individual.</p>
-      </div>
-      <div class="feature-card">
-        <div class="feature-icon">&#128279;</div>
-        <h3>Seamless Integrations</h3>
-        <p>Connect with Slack, Teams, Notion, Google Drive, and your existing tools.</p>
-      </div>
-      <div class="feature-card">
-        <div class="feature-icon">&#128202;</div>
-        <h3>Advanced Analytics</h3>
-        <p>Track usage, popular questions, and knowledge gaps across your organization.</p>
-      </div>
-      <div class="feature-card">
-        <div class="feature-icon">&#128737;</div>
-        <h3>Enterprise Security</h3>
-        <p>SOC 2 Type II, GDPR compliant, SSO, and on-premise options available.</p>
-      </div>
-      <div class="feature-card">
-        <div class="feature-icon">&#128268;</div>
-        <h3>API Access</h3>
-        <p>Build custom integrations with our developer-friendly API.</p>
-      </div>
-      <div class="feature-card">
-        <div class="feature-icon">&#9729;</div>
-        <h3>Private Deployment</h3>
-        <p>Host on your infrastructure for maximum control and compliance.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- PRICING -->
-<section id="pricing">
+<!-- Pricing -->
+<section id="pricing" class="section-gray">
   <div class="container">
     <div class="text-center">
-      <p class="section-label">Pricing</p>
-      <h2 class="section-title">Pricing that scales with you</h2>
-      <p class="section-subtitle mx-auto">Choose the plan that fits your needs. All plans include a 14-day free trial.</p>
+      <p class="section-label">Preise</p>
+      <h2 class="section-title">Einfach loslegen</h2>
+      <p class="section-subtitle mx-auto">Wähle den Plan, der zu dir passt. Starte sofort mit geprüftem Wissen auf WhatsApp.</p>
     </div>
 
     <div class="pricing-grid">
-      <!-- Starter -->
-      <div class="pricing-card">
-        <h3>Starter</h3>
-        <div class="price">Price on request</div>
-        <div class="tagline">Ideal for individual consultants and small projects</div>
-        <ul>
-          <li>30,000 Conversations / Month</li>
-          <li>10 Document Uploads</li>
-          <li>WhatsApp Integration</li>
-          <li>Email Support</li>
-        </ul>
-        <a href="mailto:hello@buddai.me" class="btn btn-outline">Get Started</a>
-      </div>
-      <!-- Pro -->
       <div class="pricing-card featured">
-        <div class="pricing-badge">Most Popular</div>
-        <h3>Pro</h3>
-        <div class="price">Price on request</div>
-        <div class="tagline">For growing teams and more demanding projects</div>
+        <div class="pricing-badge">Jetzt verfügbar</div>
+        <h3>Starter</h3>
+        <div class="price">&euro;4,90 / Monat</div>
+        <div class="price-note">inkl. USt.</div>
+        <div class="tagline">Perfekt für Gründer und Unternehmer, die schnelle Antworten brauchen.</div>
         <ul>
-          <li>60,000 Conversations / Month</li>
-          <li>50 Document Uploads</li>
-          <li>Video Transcription & Sources</li>
-          <li>Analytics Dashboard</li>
-          <li>Voice Responses</li>
-          <li>Custom Branding</li>
-          <li>Priority Support</li>
+          <li>30 Nachrichten / Monat</li>
+          <li>WhatsApp-Integration</li>
+          <li>Zugriff auf verifizierte Quellen</li>
+          <li>Quellenangaben bei jeder Antwort</li>
+          <li>Sprachnachrichten-Support</li>
+          <li>E-Mail-Support</li>
         </ul>
-        <a href="mailto:hello@buddai.me" class="btn btn-primary">Get Started</a>
+        <a href="https://wa.me/4366012345678" target="_blank" rel="noopener" class="btn btn-whatsapp">
+          <svg class="wa-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Jetzt loslegen
+        </a>
       </div>
-      <!-- Enterprise -->
       <div class="pricing-card">
-        <h3>Enterprise</h3>
-        <div class="price">Price on request</div>
-        <div class="tagline">Maximum performance for large organizations</div>
+        <h3>Pro</h3>
+        <div class="price">Demnächst</div>
+        <div class="price-note">Erweiterte Features & mehr Kontingent</div>
+        <div class="tagline">Für Power-User, Berater und Teams, die mehr brauchen.</div>
         <ul>
-          <li>Unlimited Conversations</li>
-          <li>Unlimited Uploads</li>
-          <li>Video Transcription & Sources</li>
-          <li>Advanced Analytics</li>
-          <li>Voice Responses & Custom Branding</li>
-          <li>Team Collaboration & Role Management</li>
-          <li>API Access</li>
-          <li>SSO & Advanced Security</li>
-          <li>Custom Integrations</li>
-          <li>SLA & Dedicated Success Manager</li>
+          <li>Unbegrenzte Nachrichten</li>
+          <li>WhatsApp-Integration</li>
+          <li>Zugriff auf verifizierte Quellen</li>
+          <li>Quellenangaben bei jeder Antwort</li>
+          <li>Sprachnachrichten-Support</li>
+          <li>Video-Transkription & Zeitstempel</li>
+          <li>Prioritäts-Support</li>
         </ul>
-        <a href="mailto:hello@buddai.me" class="btn btn-outline">Get Started</a>
+        <a href="#kontakt" class="btn btn-waitlist">Auf Warteliste eintragen</a>
       </div>
-    </div>
-
-    <!-- Comparison Table -->
-    <div style="overflow-x: auto;">
-      <table class="comparison-table">
-        <thead>
-          <tr>
-            <th>Feature</th>
-            <th>Starter</th>
-            <th>Pro</th>
-            <th>Enterprise</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr><td>Conversations per month</td><td>30,000</td><td>60,000</td><td>Unlimited</td></tr>
-          <tr><td>Document uploads</td><td>10</td><td>Unlimited</td><td>Unlimited</td></tr>
-          <tr><td>WhatsApp integration</td><td class="check">&#10003;</td><td class="check">&#10003;</td><td class="check">&#10003;</td></tr>
-          <tr><td>Video transcriptions & sources</td><td class="cross">&#10007;</td><td class="check">&#10003;</td><td class="check">&#10003;</td></tr>
-          <tr><td>Analytics</td><td class="cross">&#10007;</td><td class="check">&#10003;</td><td class="check">&#10003;</td></tr>
-          <tr><td>Voice responses</td><td class="cross">&#10007;</td><td class="cross">&#10007;</td><td class="check">&#10003;</td></tr>
-          <tr><td>Custom branding</td><td class="cross">&#10007;</td><td class="check">&#10003;</td><td class="check">&#10003;</td></tr>
-          <tr><td>Team collaboration & roles</td><td class="cross">&#10007;</td><td class="cross">&#10007;</td><td class="check">&#10003;</td></tr>
-          <tr><td>API access</td><td class="cross">&#10007;</td><td class="cross">&#10007;</td><td class="check">&#10003;</td></tr>
-          <tr><td>SSO & advanced security</td><td class="cross">&#10007;</td><td class="cross">&#10007;</td><td class="check">&#10003;</td></tr>
-          <tr><td>Custom integrations</td><td class="cross">&#10007;</td><td class="cross">&#10007;</td><td class="check">&#10003;</td></tr>
-          <tr><td>Support</td><td>Email</td><td>Priority</td><td>SLA + Dedicated Manager</td></tr>
-        </tbody>
-      </table>
     </div>
   </div>
 </section>
 
 <!-- FAQ -->
-<section class="section-gray" id="faq">
+<section id="faq">
   <div class="container">
     <div class="text-center">
       <p class="section-label">FAQ</p>
-      <h2 class="section-title">Frequently Asked Questions</h2>
+      <h2 class="section-title">Häufig gestellte Fragen</h2>
     </div>
     <div class="faq-list">
       <div class="faq-item">
-        <div class="faq-question" onclick="this.parentElement.classList.toggle('open')">What file formats can I upload?</div>
-        <div class="faq-answer">BuddAI supports PDFs, Word documents, PowerPoints, and transcripts of video content. We automatically extract the content and make it available for your chat assistant.</div>
+        <div class="faq-question" onclick="this.parentElement.classList.toggle('open')">Wie funktioniert die WhatsApp-Integration?</div>
+        <div class="faq-answer">Du klickst einfach auf „Jetzt chatten" und landest direkt im WhatsApp-Chat mit dem Austrian Founder Buddy. Dort stellst du deine Frage - per Text oder Sprachnachricht - und erhältst sofort eine fundierte Antwort mit Quellenangabe.</div>
       </div>
       <div class="faq-item">
-        <div class="faq-question" onclick="this.parentElement.classList.toggle('open')">Do I need technical knowledge to set up BuddAI?</div>
-        <div class="faq-answer">No. Setup takes just a few minutes - you upload your documents or videos, and BuddAI trains itself automatically. No code, no technical configuration required.</div>
+        <div class="faq-question" onclick="this.parentElement.classList.toggle('open')">Wie sicher sind meine Daten?</div>
+        <div class="faq-answer">Deine Daten werden ausschließlich auf Servern innerhalb der Europäischen Union gespeichert. Alle Daten sind bei der Übertragung (TLS) und im Ruhezustand (AES-256) verschlüsselt. Wir teilen deine Daten niemals mit Dritten und nutzen sie nicht zum Training von KI-Modellen. Der Austrian Founder Buddy arbeitet unter strengem europäischen Datenschutzrecht.</div>
       </div>
       <div class="faq-item">
-        <div class="faq-question" onclick="this.parentElement.classList.toggle('open')">How does the WhatsApp integration work?</div>
-        <div class="faq-answer">After creating your assistant, you connect it to your number via the WhatsApp Business API. Your customers or employees can then ask questions directly via WhatsApp.</div>
+        <div class="faq-question" onclick="this.parentElement.classList.toggle('open')">Woher stammen die Informationen?</div>
+        <div class="faq-answer">Der Austrian Founder Buddy greift auf eine kuratierte Datenbank mit hunderten geprüften Quellen zu - darunter offizielle Informationen der Wirtschaftskammer, des Finanzministeriums, der SVS, von i2b und weiteren renommierten österreichischen Institutionen. Jede Antwort enthält eine Quellenangabe.</div>
       </div>
       <div class="faq-item">
-        <div class="faq-question" onclick="this.parentElement.classList.toggle('open')">How secure is my data?</div>
-        <div class="faq-answer">Your data is stored exclusively on servers within the European Union. All data is encrypted in transit (TLS) and at rest (AES-256). We never share your data with third parties or use it to train AI models. BuddAI operates under strict European data protection law - your data never leaves EU infrastructure.</div>
+        <div class="faq-question" onclick="this.parentElement.classList.toggle('open')">Kann ich meinen Plan später ändern?</div>
+        <div class="faq-answer">Ja. Du kannst jederzeit upgraden, sobald der Pro-Plan verfügbar ist. Änderungen werden zu Beginn des nächsten Abrechnungszeitraums wirksam.</div>
       </div>
       <div class="faq-item">
-        <div class="faq-question" onclick="this.parentElement.classList.toggle('open')">Can I change my plan later?</div>
-        <div class="faq-answer">Yes. You can upgrade or downgrade your plan at any time. Changes take effect at the start of your next billing cycle.</div>
-      </div>
-      <div class="faq-item">
-        <div class="faq-question" onclick="this.parentElement.classList.toggle('open')">Do you offer a free trial?</div>
-        <div class="faq-answer">Yes, all plans include a 14-day free trial. No credit card required.</div>
+        <div class="faq-question" onclick="this.parentElement.classList.toggle('open')">Gibt es eine kostenlose Testphase?</div>
+        <div class="faq-answer">Ja, du kannst den Austrian Founder Buddy 14 Tage lang kostenlos testen. Keine Kreditkarte erforderlich - einfach auf WhatsApp loslegen.</div>
       </div>
     </div>
   </div>
@@ -993,49 +1054,81 @@
 <!-- CTA Banner -->
 <div class="cta-banner">
   <div class="container">
-    <p class="section-label" style="color: rgba(255,255,255,0.7);">14-day free trial - No credit card required</p>
-    <h2 class="section-title">Start scaling your practice today</h2>
-    <p class="section-subtitle">Still have questions? Schedule a demo with our team to find the perfect plan for you.</p>
+    <p class="section-label">14 Tage kostenlos testen</p>
+    <h2 class="section-title">Bereit für geprüftes Wissen auf WhatsApp?</h2>
+    <p class="section-subtitle">Starte jetzt und stelle deine erste Frage. Keine Registrierung nötig.</p>
     <div class="hero-buttons">
-      <a href="mailto:hello@buddai.me" class="btn btn-whatsapp">Request a Demo</a>
-      <a href="#pricing" class="btn" style="background: rgba(255,255,255,0.15); color: white;">See Plans</a>
+      <a href="https://wa.me/4366012345678" target="_blank" rel="noopener" class="btn" style="background: var(--whatsapp); color: white;">
+        <svg class="wa-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Jetzt chatten
+      </a>
     </div>
   </div>
 </div>
 
-<!-- IMPRINT -->
+<!-- Kontaktformular -->
+<section id="kontakt">
+  <div class="container">
+    <div class="text-center">
+      <p class="section-label">Kontakt</p>
+      <h2 class="section-title">Schreib uns</h2>
+      <p class="section-subtitle mx-auto">Du hast Fragen, Feedback oder möchtest dich für die Pro-Warteliste eintragen? Wir freuen uns auf deine Nachricht.</p>
+    </div>
+    <form class="contact-form" action="https://formsubmit.co/hallo@put.ai" method="POST">
+      <input type="hidden" name="_subject" value="Kontaktanfrage - Austrian Founder Buddy">
+      <input type="hidden" name="_captcha" value="false">
+      <input type="hidden" name="_next" value="https://buddai-onepager.vercel.app/#kontakt">
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name" required placeholder="Dein Name">
+      </div>
+      <div class="form-group">
+        <label for="email">E-Mail</label>
+        <input type="email" id="email" name="email" required placeholder="deine@email.at">
+      </div>
+      <div class="form-group">
+        <label for="betreff">Betreff</label>
+        <select id="betreff" name="betreff">
+          <option value="Allgemeine Anfrage">Allgemeine Anfrage</option>
+          <option value="Pro-Warteliste">Pro-Warteliste Anmeldung</option>
+          <option value="Feedback">Feedback</option>
+          <option value="Partnerschaft">Partnerschaft / Kooperation</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="nachricht">Nachricht</label>
+        <textarea id="nachricht" name="nachricht" required placeholder="Deine Nachricht..."></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary" style="width: 100%; justify-content: center;">Nachricht senden</button>
+    </form>
+  </div>
+</section>
+
+<!-- Impressum -->
 <section id="imprint" class="section-gray">
   <div class="container">
-    <p class="section-label">Legal</p>
-    <h2 class="section-title">Imprint</h2>
+    <p class="section-label">Rechtliches</p>
+    <h2 class="section-title">Impressum</h2>
     <div class="imprint-content">
       <dl>
-        <dt>Company</dt>
+        <dt>Unternehmen</dt>
         <dd>Budd.ai FlexCo (Flexible Kapitalgesellschaft)</dd>
-
-        <dt>Address</dt>
-        <dd>Huttelbergstrasse 119, Tur 2, 1140 Wien, Austria</dd>
-
-        <dt>Managing Director</dt>
+        <dt>Adresse</dt>
+        <dd>Hüttelbergstraße 119, Tür 2, 1140 Wien, Österreich</dd>
+        <dt>Geschäftsführer</dt>
         <dd>Martin Gruber</dd>
-
-        <dt>Email</dt>
-        <dd><a href="mailto:hello@buddai.me" style="color: var(--primary);">hello@buddai.me</a></dd>
-
-        <dt>Company Register Number</dt>
+        <dt>E-Mail</dt>
+        <dd><a href="mailto:hallo@put.ai" style="color: var(--primary);">hallo@put.ai</a></dd>
+        <dt>Firmenbuchnummer</dt>
         <dd>664864 t</dd>
-
-        <dt>Court of Registration</dt>
+        <dt>Firmenbuchgericht</dt>
         <dd>Handelsgericht Wien</dd>
-
         <dt>EUID</dt>
         <dd>ATBRA.664864-000</dd>
-
-        <dt>Business Purpose</dt>
-        <dd>Development, operation and distribution of Software-as-Service; development, operation and distribution of AI-based assistance systems; integration of data processing, document analysis and voice interaction.</dd>
-
-        <dt>Regulatory Framework</dt>
-        <dd>Austrian Trade Regulation Act (Gewerbeordnung). Competent supervisory authority: Magistrate of the City of Vienna.</dd>
+        <dt>Unternehmensgegenstand</dt>
+        <dd>Entwicklung, Betrieb und Vertrieb von Software-as-a-Service; Entwicklung, Betrieb und Vertrieb von KI-basierten Assistenzsystemen; Integration von Datenverarbeitung, Dokumentenanalyse und Sprachinteraktion.</dd>
+        <dt>Aufsichtsbehörde</dt>
+        <dd>Magistrat der Stadt Wien. Gewerberechtliche Vorschriften: Gewerbeordnung.</dd>
       </dl>
     </div>
   </div>
@@ -1045,32 +1138,41 @@
 <footer>
   <div class="footer-grid">
     <div class="footer-brand">
-      <div class="logo" style="color: var(--white);">Budd.ai</div>
-      <p>Turn your documents and videos into intelligent WhatsApp assistants. Human Intelligence, Simplified.</p>
+      <div style="color: var(--white); font-weight: 800; font-size: 1.1rem;">Austrian Founder Buddy</div>
+      <p>Geprüftes Wissen für Gründer und Unternehmer in Österreich - direkt auf WhatsApp. Menschliche Intelligenz, vereinfacht.</p>
     </div>
     <div>
-      <h4>Product</h4>
+      <h4>Navigation</h4>
       <ul>
-        <li><a href="#hero">Home</a></li>
-        <li><a href="#consultants">For Consultants</a></li>
-        <li><a href="#organizations">For Organizations</a></li>
-        <li><a href="#pricing">Pricing</a></li>
+        <li><a href="#hero">Start</a></li>
+        <li><a href="#zielgruppen">Zielgruppen</a></li>
+        <li><a href="#features">Funktionen</a></li>
+        <li><a href="#pricing">Preise</a></li>
+        <li><a href="#kontakt">Kontakt</a></li>
       </ul>
     </div>
     <div>
-      <h4>Legal</h4>
+      <h4>Rechtliches</h4>
       <ul>
-        <li><a href="https://www.mindtech.at/privacy" target="_blank" rel="noopener">Privacy</a></li>
-        <li><a href="https://www.mindtech.at/docs/terms/mindtech_terms_and_conditions.pdf" target="_blank" rel="noopener">Terms</a></li>
-        <li><a href="#imprint">Imprint</a></li>
-        <li><a href="mailto:hello@buddai.me">Careers</a></li>
+        <li><a href="https://www.mindtech.at/privacy" target="_blank" rel="noopener">Datenschutz</a></li>
+        <li><a href="https://www.mindtech.at/docs/terms/mindtech_terms_and_conditions.pdf" target="_blank" rel="noopener">AGB</a></li>
+        <li><a href="#imprint">Impressum</a></li>
       </ul>
     </div>
   </div>
   <div class="footer-bottom">
-    &copy; 2026 Budd.ai. All Rights reserved.
+    &copy; 2026 Austrian Founder Buddy. Alle Rechte vorbehalten.
   </div>
 </footer>
+
+<script>
+function switchTab(tab) {
+  document.querySelectorAll('.target-tab').forEach(t => t.classList.remove('active'));
+  document.querySelectorAll('.target-content').forEach(c => c.classList.remove('active'));
+  document.getElementById('tab-' + tab).classList.add('active');
+  event.target.classList.add('active');
+}
+</script>
 
 </body>
 </html>

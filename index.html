@@ -1,0 +1,1076 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Budd.ai - Your Knowledge, On WhatsApp</title>
+  <style>
+    :root {
+      --primary: #6C3CE1;
+      --primary-dark: #5228C0;
+      --accent: #25D366;
+      --dark: #0F1629;
+      --gray-900: #1A1F36;
+      --gray-700: #3D4663;
+      --gray-500: #6B7280;
+      --gray-300: #D1D5DB;
+      --gray-100: #F3F4F6;
+      --white: #FFFFFF;
+      --radius: 12px;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, sans-serif;
+      color: var(--gray-900);
+      line-height: 1.6;
+      background: var(--white);
+    }
+
+    /* Navigation */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      z-index: 1000;
+      border-bottom: 1px solid var(--gray-300);
+    }
+
+    .nav-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 2rem;
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: var(--primary);
+      text-decoration: none;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+      align-items: center;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--gray-700);
+      font-weight: 500;
+      font-size: 0.95rem;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--primary); }
+
+    .btn {
+      display: inline-block;
+      padding: 0.75rem 1.75rem;
+      border-radius: 8px;
+      font-weight: 600;
+      text-decoration: none;
+      font-size: 0.95rem;
+      transition: all 0.2s;
+      cursor: pointer;
+      border: none;
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      color: var(--white);
+    }
+
+    .btn-primary:hover {
+      background: var(--primary-dark);
+      transform: translateY(-1px);
+    }
+
+    .btn-outline {
+      border: 2px solid var(--primary);
+      color: var(--primary);
+      background: transparent;
+    }
+
+    .btn-outline:hover {
+      background: var(--primary);
+      color: var(--white);
+    }
+
+    .btn-whatsapp {
+      background: var(--accent);
+      color: var(--white);
+    }
+
+    .btn-whatsapp:hover {
+      background: #1EB854;
+    }
+
+    /* Sections */
+    section {
+      padding: 6rem 2rem;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .section-label {
+      text-transform: uppercase;
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      color: var(--primary);
+      margin-bottom: 0.75rem;
+    }
+
+    .section-title {
+      font-size: 2.5rem;
+      font-weight: 800;
+      line-height: 1.2;
+      margin-bottom: 1rem;
+      color: var(--dark);
+    }
+
+    .section-subtitle {
+      font-size: 1.15rem;
+      color: var(--gray-500);
+      max-width: 700px;
+      margin-bottom: 3rem;
+    }
+
+    .text-center { text-align: center; }
+    .mx-auto { margin-left: auto; margin-right: auto; }
+
+    /* Hero */
+    #hero {
+      padding-top: 10rem;
+      padding-bottom: 6rem;
+      background: linear-gradient(135deg, #f5f0ff 0%, #eef2ff 50%, #f0fdf4 100%);
+      text-align: center;
+    }
+
+    #hero .section-title {
+      font-size: 3.5rem;
+      max-width: 800px;
+      margin: 0 auto 1.5rem;
+    }
+
+    #hero .section-subtitle {
+      font-size: 1.25rem;
+      max-width: 600px;
+      margin: 0 auto 2.5rem;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    /* Features Grid */
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+
+    .feature-card {
+      background: var(--white);
+      border: 1px solid var(--gray-300);
+      border-radius: var(--radius);
+      padding: 2rem;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 40px rgba(108, 60, 225, 0.1);
+    }
+
+    .feature-icon {
+      width: 48px;
+      height: 48px;
+      background: linear-gradient(135deg, var(--primary), #8B5CF6);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.25rem;
+      font-size: 1.5rem;
+    }
+
+    .feature-card h3 {
+      font-size: 1.15rem;
+      margin-bottom: 0.5rem;
+      color: var(--dark);
+    }
+
+    .feature-card p {
+      color: var(--gray-500);
+      font-size: 0.95rem;
+    }
+
+    /* How It Works */
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 2rem;
+      counter-reset: step;
+    }
+
+    .step {
+      text-align: center;
+      padding: 2rem 1.5rem;
+    }
+
+    .step-number {
+      width: 56px;
+      height: 56px;
+      background: var(--primary);
+      color: var(--white);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      font-weight: 800;
+      margin: 0 auto 1.25rem;
+    }
+
+    .step h3 {
+      margin-bottom: 0.5rem;
+      color: var(--dark);
+    }
+
+    .step p {
+      color: var(--gray-500);
+      font-size: 0.95rem;
+    }
+
+    /* Dark section */
+    .section-dark {
+      background: var(--dark);
+      color: var(--white);
+    }
+
+    .section-dark .section-title { color: var(--white); }
+    .section-dark .section-subtitle { color: rgba(255,255,255,0.65); }
+    .section-dark .feature-card {
+      background: var(--gray-900);
+      border-color: rgba(255,255,255,0.1);
+    }
+    .section-dark .feature-card h3 { color: var(--white); }
+    .section-dark .feature-card p { color: rgba(255,255,255,0.6); }
+
+    /* Light gray section */
+    .section-gray { background: var(--gray-100); }
+
+    /* Stats */
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+    }
+
+    .stat-card {
+      background: var(--white);
+      border-radius: var(--radius);
+      padding: 2.5rem 2rem;
+      text-align: center;
+      border: 1px solid var(--gray-300);
+    }
+
+    .stat-number {
+      font-size: 2.5rem;
+      font-weight: 800;
+      color: var(--primary);
+      margin-bottom: 0.25rem;
+    }
+
+    .stat-label {
+      font-weight: 600;
+      color: var(--dark);
+      margin-bottom: 0.5rem;
+    }
+
+    .stat-desc {
+      color: var(--gray-500);
+      font-size: 0.9rem;
+    }
+
+    /* Testimonials */
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 2rem;
+    }
+
+    .testimonial {
+      background: var(--white);
+      border: 1px solid var(--gray-300);
+      border-radius: var(--radius);
+      padding: 2rem;
+    }
+
+    .testimonial blockquote {
+      font-style: italic;
+      color: var(--gray-700);
+      margin-bottom: 1.5rem;
+      line-height: 1.7;
+    }
+
+    .testimonial-author {
+      font-weight: 700;
+      color: var(--dark);
+    }
+
+    .testimonial-role {
+      font-size: 0.85rem;
+      color: var(--gray-500);
+    }
+
+    /* Pricing */
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 2rem;
+    }
+
+    .pricing-card {
+      background: var(--white);
+      border: 2px solid var(--gray-300);
+      border-radius: var(--radius);
+      padding: 2.5rem;
+      position: relative;
+    }
+
+    .pricing-card.featured {
+      border-color: var(--primary);
+      box-shadow: 0 12px 40px rgba(108, 60, 225, 0.15);
+    }
+
+    .pricing-badge {
+      position: absolute;
+      top: -14px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--primary);
+      color: var(--white);
+      padding: 0.25rem 1.25rem;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: 700;
+    }
+
+    .pricing-card h3 {
+      font-size: 1.5rem;
+      margin-bottom: 0.25rem;
+      color: var(--dark);
+    }
+
+    .pricing-card .price {
+      font-size: 1.1rem;
+      color: var(--primary);
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+
+    .pricing-card .tagline {
+      color: var(--gray-500);
+      font-size: 0.9rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .pricing-card ul {
+      list-style: none;
+      margin-bottom: 2rem;
+    }
+
+    .pricing-card ul li {
+      padding: 0.4rem 0;
+      color: var(--gray-700);
+      font-size: 0.95rem;
+      position: relative;
+      padding-left: 1.5rem;
+    }
+
+    .pricing-card ul li::before {
+      content: "\2713";
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+      font-weight: 700;
+    }
+
+    .pricing-card .btn {
+      width: 100%;
+      text-align: center;
+    }
+
+    /* Comparison Table */
+    .comparison-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 3rem;
+      font-size: 0.95rem;
+    }
+
+    .comparison-table th,
+    .comparison-table td {
+      padding: 1rem 1.25rem;
+      text-align: left;
+      border-bottom: 1px solid var(--gray-300);
+    }
+
+    .comparison-table th {
+      background: var(--dark);
+      color: var(--white);
+      font-weight: 600;
+    }
+
+    .comparison-table th:first-child {
+      border-radius: 8px 0 0 0;
+    }
+
+    .comparison-table th:last-child {
+      border-radius: 0 8px 0 0;
+    }
+
+    .comparison-table tr:hover {
+      background: var(--gray-100);
+    }
+
+    .comparison-table td:not(:first-child) {
+      text-align: center;
+    }
+
+    .comparison-table th:not(:first-child) {
+      text-align: center;
+    }
+
+    .check { color: var(--accent); font-weight: 700; }
+    .cross { color: var(--gray-300); }
+
+    /* FAQ */
+    .faq-list {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .faq-item {
+      border-bottom: 1px solid var(--gray-300);
+      padding: 1.5rem 0;
+    }
+
+    .faq-question {
+      font-weight: 700;
+      color: var(--dark);
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 1.05rem;
+    }
+
+    .faq-question::after {
+      content: "+";
+      font-size: 1.5rem;
+      color: var(--primary);
+      transition: transform 0.2s;
+    }
+
+    .faq-item.open .faq-question::after {
+      transform: rotate(45deg);
+    }
+
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease, padding 0.3s ease;
+      color: var(--gray-500);
+      line-height: 1.7;
+    }
+
+    .faq-item.open .faq-answer {
+      max-height: 300px;
+      padding-top: 1rem;
+    }
+
+    /* CTA Banner */
+    .cta-banner {
+      background: linear-gradient(135deg, var(--primary), #8B5CF6);
+      color: var(--white);
+      text-align: center;
+      padding: 5rem 2rem;
+    }
+
+    .cta-banner .section-title { color: var(--white); }
+    .cta-banner .section-subtitle {
+      color: rgba(255,255,255,0.8);
+      margin: 0 auto 2rem;
+    }
+
+    /* Imprint */
+    .imprint-content {
+      max-width: 700px;
+    }
+
+    .imprint-content dt {
+      font-weight: 700;
+      color: var(--dark);
+      margin-top: 1.25rem;
+    }
+
+    .imprint-content dd {
+      color: var(--gray-500);
+      margin-bottom: 0.75rem;
+    }
+
+    /* Footer */
+    footer {
+      background: var(--dark);
+      color: rgba(255,255,255,0.6);
+      padding: 4rem 2rem 2rem;
+    }
+
+    .footer-grid {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 3rem;
+      margin-bottom: 3rem;
+    }
+
+    .footer-brand p {
+      margin-top: 1rem;
+      font-size: 0.9rem;
+      line-height: 1.7;
+    }
+
+    footer h4 {
+      color: var(--white);
+      margin-bottom: 1rem;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    footer ul {
+      list-style: none;
+    }
+
+    footer ul li { margin-bottom: 0.5rem; }
+
+    footer ul a {
+      color: rgba(255,255,255,0.6);
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: color 0.2s;
+    }
+
+    footer ul a:hover { color: var(--white); }
+
+    .footer-bottom {
+      max-width: 1200px;
+      margin: 0 auto;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      padding-top: 1.5rem;
+      text-align: center;
+      font-size: 0.85rem;
+    }
+
+    /* Hamburger menu */
+    .hamburger {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+      color: var(--gray-900);
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .hamburger { display: block; }
+
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        flex-direction: column;
+        background: var(--white);
+        padding: 1rem 2rem 2rem;
+        border-bottom: 1px solid var(--gray-300);
+        gap: 1rem;
+      }
+
+      .nav-links.open { display: flex; }
+
+      #hero .section-title { font-size: 2.25rem; }
+
+      .section-title { font-size: 2rem; }
+
+      .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+
+      .comparison-table { font-size: 0.8rem; }
+      .comparison-table th, .comparison-table td { padding: 0.6rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Navigation -->
+<nav>
+  <div class="nav-inner">
+    <a href="#hero" class="logo">Budd.ai</a>
+    <button class="hamburger" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Menu">&#9776;</button>
+    <ul class="nav-links">
+      <li><a href="#hero">Home</a></li>
+      <li><a href="#consultants">For Consultants</a></li>
+      <li><a href="#organizations">For Organizations</a></li>
+      <li><a href="#pricing">Pricing</a></li>
+      <li><a href="#imprint">Imprint</a></li>
+      <li><a href="mailto:hello@buddai.me" class="btn btn-primary">Request Demo</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="container">
+    <p class="section-label">Your Knowledge, On WhatsApp</p>
+    <h1 class="section-title">Turn your documents and videos into intelligent WhatsApp assistants</h1>
+    <p class="section-subtitle">Upload your content, let AI learn from it, and share it via WhatsApp. Your knowledge, available 24/7 - no code required.</p>
+    <div class="hero-buttons">
+      <a href="mailto:hello@buddai.me" class="btn btn-primary">Request a Demo</a>
+      <a href="#pricing" class="btn btn-outline">See Pricing</a>
+    </div>
+  </div>
+</section>
+
+<!-- HOME: Features -->
+<section id="features">
+  <div class="container">
+    <p class="section-label">Capabilities</p>
+    <h2 class="section-title">What Budd.ai Can Do</h2>
+    <p class="section-subtitle">Powerful features to transform your knowledge into accessible intelligence.</p>
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-icon">&#128172;</div>
+        <h3>Smart Replies</h3>
+        <p>AI-powered responses based on your uploaded documents and content. Accurate, contextual, and instant.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">&#127909;</div>
+        <h3>Video Timestamps</h3>
+        <p>Automatically references exact timestamps in your videos so users find the right answer instantly.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">&#127908;</div>
+        <h3>Voice Messages</h3>
+        <p>Respond to voice messages and deliver spoken answers - making knowledge truly accessible.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">&#128196;</div>
+        <h3>Document Understanding</h3>
+        <p>Upload PDFs, Word docs, PowerPoints, and more. Budd.ai extracts and understands the content automatically.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOME: How it Works -->
+<section class="section-gray" id="how-it-works">
+  <div class="container">
+    <div class="text-center">
+      <p class="section-label">How It Works</p>
+      <h2 class="section-title">Up and Running in Minutes</h2>
+      <p class="section-subtitle mx-auto">Get your AI assistant live in three simple steps - no technical knowledge required.</p>
+    </div>
+    <div class="steps">
+      <div class="step">
+        <div class="step-number">1</div>
+        <h3>Upload Your Content</h3>
+        <p>Add your PDFs, videos, past client Q&As, and any materials that capture your expertise.</p>
+      </div>
+      <div class="step">
+        <div class="step-number">2</div>
+        <h3>AI Learns From It</h3>
+        <p>Our AI learns your style, tone, and methodology. Review and refine responses until perfect.</p>
+      </div>
+      <div class="step">
+        <div class="step-number">3</div>
+        <h3>Share on WhatsApp</h3>
+        <p>Send your clients a WhatsApp link. They ask questions, your assistant responds instantly.</p>
+      </div>
+      <div class="step">
+        <div class="step-number">4</div>
+        <h3>Grow &amp; Scale</h3>
+        <p>Handle more clients, save time, and increase revenue - all on autopilot.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOR CONSULTANTS -->
+<section id="consultants" class="section-dark">
+  <div class="container">
+    <p class="section-label">For Consultants</p>
+    <h2 class="section-title">Scale your consulting with instant intelligence</h2>
+    <p class="section-subtitle">Transform your knowledge into a 24/7 assistant. Answer client questions, share insights, and grow your practice - without working more hours.</p>
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-icon">&#9201;</div>
+        <h3>Save 10+ Hours Weekly</h3>
+        <p>Stop answering the same questions. Your assistant handles FAQs, freeing you for billable work.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">&#128200;</div>
+        <h3>Scale Without Hiring</h3>
+        <p>Serve 10x more clients without adding team members. Your knowledge works 24/7.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">&#9889;</div>
+        <h3>Never Miss a Lead</h3>
+        <p>Respond instantly to prospects, even when you're in meetings or on vacation.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">&#128483;</div>
+        <h3>Your Voice, Automated</h3>
+        <p>The assistant learns your tone and style, maintaining your personal brand.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">&#128203;</div>
+        <h3>Reusable Templates</h3>
+        <p>Create response templates once, use them infinitely. Update anytime.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">&#127912;</div>
+        <h3>White-Label Ready</h3>
+        <p>Brand the assistant as yours. Your logo, your colors, your identity.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Testimonials -->
+<section id="testimonials">
+  <div class="container">
+    <div class="text-center">
+      <p class="section-label">Testimonials</p>
+      <h2 class="section-title">Loved by Experts</h2>
+      <p class="section-subtitle mx-auto">See what our customers are saying about us.</p>
+    </div>
+    <div class="testimonials-grid">
+      <div class="testimonial">
+        <blockquote>"Managing multiple clients, I used to spend hours answering the same questions. BuddAI let me encode my expertise into an assistant my clients can query any time - it's the closest thing to scaling yourself that I've found."</blockquote>
+        <div class="testimonial-author">Andreas Kraus</div>
+        <div class="testimonial-role">Entrepreneur & Business Consultant</div>
+      </div>
+      <div class="testimonial">
+        <blockquote>"BuddAI transformed how we communicate with our stakeholders. We can promote sports and activities now directly within the WhatsApp app of our users and provide instant, consistent answers at scale - without effort."</blockquote>
+        <div class="testimonial-author">Nik Kleemann</div>
+        <div class="testimonial-role">General Secretary - OBSV</div>
+      </div>
+      <div class="testimonial">
+        <blockquote>"BuddAI feels like having a digital version of myself available at all times, answering reliably based on the sources I provide. It elevates my client experience while freeing up hours every week - that's a game changer."</blockquote>
+        <div class="testimonial-author">N.N.</div>
+        <div class="testimonial-role">Manager Creative Industry</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOR ORGANIZATIONS -->
+<section id="organizations" class="section-gray">
+  <div class="container">
+    <p class="section-label">For Organizations</p>
+    <h2 class="section-title">Unlock your team's collective knowledge</h2>
+    <p class="section-subtitle">Transform scattered documents, training videos, and tribal knowledge into an intelligent assistant your entire organization can access instantly.</p>
+
+    <!-- Stats -->
+    <div class="stats-grid" style="margin-bottom: 4rem;">
+      <div class="stat-card">
+        <div class="stat-number">87%</div>
+        <div class="stat-label">Faster Onboarding</div>
+        <div class="stat-desc">Reduced new hire ramp time from 6 weeks to under 1 week</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">$2M</div>
+        <div class="stat-label">Cost Savings</div>
+        <div class="stat-desc">Saved annually by reducing support tickets by 70%</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">10x</div>
+        <div class="stat-label">Knowledge Access</div>
+        <div class="stat-desc">Increased employee knowledge retrieval by 10x</div>
+      </div>
+    </div>
+
+    <!-- Enterprise Features -->
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-icon">&#128274;</div>
+        <h3>Role-Based Access</h3>
+        <p>Control permissions by team, department, or individual.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">&#128279;</div>
+        <h3>Seamless Integrations</h3>
+        <p>Connect with Slack, Teams, Notion, Google Drive, and your existing tools.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">&#128202;</div>
+        <h3>Advanced Analytics</h3>
+        <p>Track usage, popular questions, and knowledge gaps across your organization.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">&#128737;</div>
+        <h3>Enterprise Security</h3>
+        <p>SOC 2 Type II, GDPR compliant, SSO, and on-premise options available.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">&#128268;</div>
+        <h3>API Access</h3>
+        <p>Build custom integrations with our developer-friendly API.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">&#9729;</div>
+        <h3>Private Deployment</h3>
+        <p>Host on your infrastructure for maximum control and compliance.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section id="pricing">
+  <div class="container">
+    <div class="text-center">
+      <p class="section-label">Pricing</p>
+      <h2 class="section-title">Pricing that scales with you</h2>
+      <p class="section-subtitle mx-auto">Choose the plan that fits your needs. All plans include a 14-day free trial.</p>
+    </div>
+
+    <div class="pricing-grid">
+      <!-- Starter -->
+      <div class="pricing-card">
+        <h3>Starter</h3>
+        <div class="price">Price on request</div>
+        <div class="tagline">Ideal for individual consultants and small projects</div>
+        <ul>
+          <li>30,000 Conversations / Month</li>
+          <li>10 Document Uploads</li>
+          <li>WhatsApp Integration</li>
+          <li>Email Support</li>
+        </ul>
+        <a href="mailto:hello@buddai.me" class="btn btn-outline">Get Started</a>
+      </div>
+      <!-- Pro -->
+      <div class="pricing-card featured">
+        <div class="pricing-badge">Most Popular</div>
+        <h3>Pro</h3>
+        <div class="price">Price on request</div>
+        <div class="tagline">For growing teams and more demanding projects</div>
+        <ul>
+          <li>60,000 Conversations / Month</li>
+          <li>50 Document Uploads</li>
+          <li>Video Transcription & Sources</li>
+          <li>Analytics Dashboard</li>
+          <li>Voice Responses</li>
+          <li>Custom Branding</li>
+          <li>Priority Support</li>
+        </ul>
+        <a href="mailto:hello@buddai.me" class="btn btn-primary">Get Started</a>
+      </div>
+      <!-- Enterprise -->
+      <div class="pricing-card">
+        <h3>Enterprise</h3>
+        <div class="price">Price on request</div>
+        <div class="tagline">Maximum performance for large organizations</div>
+        <ul>
+          <li>Unlimited Conversations</li>
+          <li>Unlimited Uploads</li>
+          <li>Video Transcription & Sources</li>
+          <li>Advanced Analytics</li>
+          <li>Voice Responses & Custom Branding</li>
+          <li>Team Collaboration & Role Management</li>
+          <li>API Access</li>
+          <li>SSO & Advanced Security</li>
+          <li>Custom Integrations</li>
+          <li>SLA & Dedicated Success Manager</li>
+        </ul>
+        <a href="mailto:hello@buddai.me" class="btn btn-outline">Get Started</a>
+      </div>
+    </div>
+
+    <!-- Comparison Table -->
+    <div style="overflow-x: auto;">
+      <table class="comparison-table">
+        <thead>
+          <tr>
+            <th>Feature</th>
+            <th>Starter</th>
+            <th>Pro</th>
+            <th>Enterprise</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Conversations per month</td><td>30,000</td><td>60,000</td><td>Unlimited</td></tr>
+          <tr><td>Document uploads</td><td>10</td><td>Unlimited</td><td>Unlimited</td></tr>
+          <tr><td>WhatsApp integration</td><td class="check">&#10003;</td><td class="check">&#10003;</td><td class="check">&#10003;</td></tr>
+          <tr><td>Video transcriptions & sources</td><td class="cross">&#10007;</td><td class="check">&#10003;</td><td class="check">&#10003;</td></tr>
+          <tr><td>Analytics</td><td class="cross">&#10007;</td><td class="check">&#10003;</td><td class="check">&#10003;</td></tr>
+          <tr><td>Voice responses</td><td class="cross">&#10007;</td><td class="cross">&#10007;</td><td class="check">&#10003;</td></tr>
+          <tr><td>Custom branding</td><td class="cross">&#10007;</td><td class="check">&#10003;</td><td class="check">&#10003;</td></tr>
+          <tr><td>Team collaboration & roles</td><td class="cross">&#10007;</td><td class="cross">&#10007;</td><td class="check">&#10003;</td></tr>
+          <tr><td>API access</td><td class="cross">&#10007;</td><td class="cross">&#10007;</td><td class="check">&#10003;</td></tr>
+          <tr><td>SSO & advanced security</td><td class="cross">&#10007;</td><td class="cross">&#10007;</td><td class="check">&#10003;</td></tr>
+          <tr><td>Custom integrations</td><td class="cross">&#10007;</td><td class="cross">&#10007;</td><td class="check">&#10003;</td></tr>
+          <tr><td>Support</td><td>Email</td><td>Priority</td><td>SLA + Dedicated Manager</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section-gray" id="faq">
+  <div class="container">
+    <div class="text-center">
+      <p class="section-label">FAQ</p>
+      <h2 class="section-title">Frequently Asked Questions</h2>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item">
+        <div class="faq-question" onclick="this.parentElement.classList.toggle('open')">What file formats can I upload?</div>
+        <div class="faq-answer">BuddAI supports PDFs, Word documents, PowerPoints, and transcripts of video content. We automatically extract the content and make it available for your chat assistant.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question" onclick="this.parentElement.classList.toggle('open')">Do I need technical knowledge to set up BuddAI?</div>
+        <div class="faq-answer">No. Setup takes just a few minutes - you upload your documents or videos, and BuddAI trains itself automatically. No code, no technical configuration required.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question" onclick="this.parentElement.classList.toggle('open')">How does the WhatsApp integration work?</div>
+        <div class="faq-answer">After creating your assistant, you connect it to your number via the WhatsApp Business API. Your customers or employees can then ask questions directly via WhatsApp.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question" onclick="this.parentElement.classList.toggle('open')">How secure is my data?</div>
+        <div class="faq-answer">Your data is stored exclusively on servers within the European Union. All data is encrypted in transit (TLS) and at rest (AES-256). We never share your data with third parties or use it to train AI models. BuddAI operates under strict European data protection law - your data never leaves EU infrastructure.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question" onclick="this.parentElement.classList.toggle('open')">Can I change my plan later?</div>
+        <div class="faq-answer">Yes. You can upgrade or downgrade your plan at any time. Changes take effect at the start of your next billing cycle.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question" onclick="this.parentElement.classList.toggle('open')">Do you offer a free trial?</div>
+        <div class="faq-answer">Yes, all plans include a 14-day free trial. No credit card required.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA Banner -->
+<div class="cta-banner">
+  <div class="container">
+    <p class="section-label" style="color: rgba(255,255,255,0.7);">14-day free trial - No credit card required</p>
+    <h2 class="section-title">Start scaling your practice today</h2>
+    <p class="section-subtitle">Still have questions? Schedule a demo with our team to find the perfect plan for you.</p>
+    <div class="hero-buttons">
+      <a href="mailto:hello@buddai.me" class="btn btn-whatsapp">Request a Demo</a>
+      <a href="#pricing" class="btn" style="background: rgba(255,255,255,0.15); color: white;">See Plans</a>
+    </div>
+  </div>
+</div>
+
+<!-- IMPRINT -->
+<section id="imprint" class="section-gray">
+  <div class="container">
+    <p class="section-label">Legal</p>
+    <h2 class="section-title">Imprint</h2>
+    <div class="imprint-content">
+      <dl>
+        <dt>Company</dt>
+        <dd>Budd.ai FlexCo (Flexible Kapitalgesellschaft)</dd>
+
+        <dt>Address</dt>
+        <dd>Huttelbergstrasse 119, Tur 2, 1140 Wien, Austria</dd>
+
+        <dt>Managing Director</dt>
+        <dd>Martin Gruber</dd>
+
+        <dt>Email</dt>
+        <dd><a href="mailto:hello@buddai.me" style="color: var(--primary);">hello@buddai.me</a></dd>
+
+        <dt>Company Register Number</dt>
+        <dd>664864 t</dd>
+
+        <dt>Court of Registration</dt>
+        <dd>Handelsgericht Wien</dd>
+
+        <dt>EUID</dt>
+        <dd>ATBRA.664864-000</dd>
+
+        <dt>Business Purpose</dt>
+        <dd>Development, operation and distribution of Software-as-Service; development, operation and distribution of AI-based assistance systems; integration of data processing, document analysis and voice interaction.</dd>
+
+        <dt>Regulatory Framework</dt>
+        <dd>Austrian Trade Regulation Act (Gewerbeordnung). Competent supervisory authority: Magistrate of the City of Vienna.</dd>
+      </dl>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <div class="logo" style="color: var(--white);">Budd.ai</div>
+      <p>Turn your documents and videos into intelligent WhatsApp assistants. Human Intelligence, Simplified.</p>
+    </div>
+    <div>
+      <h4>Product</h4>
+      <ul>
+        <li><a href="#hero">Home</a></li>
+        <li><a href="#consultants">For Consultants</a></li>
+        <li><a href="#organizations">For Organizations</a></li>
+        <li><a href="#pricing">Pricing</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Legal</h4>
+      <ul>
+        <li><a href="https://www.mindtech.at/privacy" target="_blank" rel="noopener">Privacy</a></li>
+        <li><a href="https://www.mindtech.at/docs/terms/mindtech_terms_and_conditions.pdf" target="_blank" rel="noopener">Terms</a></li>
+        <li><a href="#imprint">Imprint</a></li>
+        <li><a href="mailto:hello@buddai.me">Careers</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    &copy; 2026 Budd.ai. All Rights reserved.
+  </div>
+</footer>
+
+</body>
+</html>

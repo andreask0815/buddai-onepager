@@ -529,51 +529,51 @@
       position: relative;
     }
     .hero-phone img {
-      max-width: 420px;
+      max-width: 380px;
       width: 100%;
       height: auto;
-      border-radius: 24px;
-      box-shadow: 0 30px 80px rgba(15, 125, 98, 0.18), 0 10px 30px rgba(0,0,0,0.08);
+      filter: drop-shadow(0 30px 50px rgba(15, 125, 98, 0.18)) drop-shadow(0 10px 20px rgba(0,0,0,0.08));
     }
 
-    /* ── Top Logo Bar (under nav) ── */
-    .top-logo-bar {
+    /* ── Trust Logo Strip ── */
+    .trust-strip {
       background: var(--white);
+      border-top: 1px solid var(--gray-200);
       border-bottom: 1px solid var(--gray-200);
-      padding: 1rem 2rem;
-      margin-top: 65px;
+      padding: 2rem 2rem;
     }
-    .top-logo-bar-inner {
+    .trust-strip-inner {
       max-width: 1140px;
       margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.5rem;
+    }
+    .trust-strip .label {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 2.5px;
+      color: var(--gray-500);
+      text-transform: uppercase;
+    }
+    .trust-strip-logos {
       display: flex;
       align-items: center;
       justify-content: center;
       gap: 3rem;
       flex-wrap: wrap;
     }
-    .top-logo-bar .label {
-      font-size: 0.72rem;
-      font-weight: 700;
-      letter-spacing: 2px;
-      color: var(--gray-500);
-      text-transform: uppercase;
-    }
-    .top-logo-bar img {
-      height: 28px;
+    .trust-strip-logos img {
+      height: 38px;
       width: auto;
-      opacity: 0.65;
-      transition: opacity 0.3s;
-      filter: grayscale(30%);
+      max-width: 140px;
+      object-fit: contain;
+      opacity: 0.7;
+      transition: opacity 0.3s, filter 0.3s;
+      filter: grayscale(60%);
     }
-    .top-logo-bar img:hover { opacity: 1; filter: grayscale(0); }
-    .top-logo-bar .text-logo {
-      font-weight: 800;
-      font-size: 0.95rem;
-      color: var(--gray-700);
-      opacity: 0.65;
-      letter-spacing: -0.3px;
-    }
+    .trust-strip-logos img:hover { opacity: 1; filter: grayscale(0); }
 
     /* ── Partner / Linde Feature ── */
     .partner-feature {
@@ -826,20 +826,6 @@
   </div>
 </nav>
 
-<!-- ── Top Logo Bar (Vertrauenslogos) ── -->
-<div class="top-logo-bar">
-  <div class="top-logo-bar-inner">
-    <span class="label">In Zusammenarbeit mit</span>
-    <span class="text-logo">Linde Verlag</span>
-    <span class="text-logo">Wirtschaftskammer</span>
-    <span class="text-logo">InCite</span>
-    <span class="text-logo">BMF</span>
-    <span class="text-logo">SVS</span>
-    <span class="text-logo">RIS</span>
-    <img src="aws.webp" alt="AWS" style="height: 24px;">
-  </div>
-</div>
-
 <!-- ── Hero ── -->
 <section id="hero">
   <div class="container">
@@ -860,7 +846,7 @@
         </div>
       </div>
       <div class="hero-phone">
-        <img src="Gemini_Generated_Image_4v7w264v7w264v7w.png" alt="WhatsApp-Chat mit dem Gründerbuddy - Beispiel-Konversation">
+        <img src="phone-mockup-chat.png" alt="Smartphone-Screenshot: Chat mit dem AI Business Buddy zur Unternehmensanmeldung beim Finanzamt und SVS">
       </div>
     </div>
   </div>
@@ -1309,6 +1295,22 @@
     </div>
   </div>
 </section>
+
+<!-- ── Trust Logo Strip ── -->
+<div class="trust-strip">
+  <div class="trust-strip-inner">
+    <span class="label">Quellen &amp; Partner</span>
+    <div class="trust-strip-logos">
+      <img src="https://shop.lindeverlag.at/_images_global/linde_footer.svg" alt="Linde Verlag">
+      <img src="https://logo.clearbit.com/wko.at" alt="Wirtschaftskammer Österreich">
+      <img src="https://www.incite.at/upload/design/logo.png" alt="InCite">
+      <img src="https://logo.clearbit.com/bmf.gv.at" alt="Bundesministerium für Finanzen">
+      <img src="https://logo.clearbit.com/svs.at" alt="Sozialversicherung der Selbständigen">
+      <img src="https://logo.clearbit.com/ris.bka.gv.at" alt="Rechtsinformationssystem">
+      <img src="aws.webp" alt="AWS">
+    </div>
+  </div>
+</div>
 
 <!-- ── Pricing ── -->
 <section id="pricing" class="section-gray">

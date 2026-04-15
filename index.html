@@ -512,6 +512,268 @@
     /* ── Divider ── */
     .divider { height: 1px; background: linear-gradient(90deg, transparent, var(--gray-200), transparent); margin: 0; }
 
+    /* ── Hero Split ── */
+    #hero .hero-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 1fr;
+      gap: 3rem;
+      align-items: center;
+      text-align: left;
+    }
+    #hero .hero-grid .section-title { margin: 0 0 1.25rem; text-align: left; }
+    #hero .hero-grid .section-subtitle { margin: 0 0 2rem; text-align: left; }
+    #hero .hero-grid .hero-buttons { justify-content: flex-start; }
+    .hero-phone {
+      display: flex;
+      justify-content: center;
+      position: relative;
+    }
+    .hero-phone img {
+      max-width: 420px;
+      width: 100%;
+      height: auto;
+      border-radius: 24px;
+      box-shadow: 0 30px 80px rgba(15, 125, 98, 0.18), 0 10px 30px rgba(0,0,0,0.08);
+    }
+
+    /* ── Top Logo Bar (under nav) ── */
+    .top-logo-bar {
+      background: var(--white);
+      border-bottom: 1px solid var(--gray-200);
+      padding: 1rem 2rem;
+      margin-top: 65px;
+    }
+    .top-logo-bar-inner {
+      max-width: 1140px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 3rem;
+      flex-wrap: wrap;
+    }
+    .top-logo-bar .label {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      color: var(--gray-500);
+      text-transform: uppercase;
+    }
+    .top-logo-bar img {
+      height: 28px;
+      width: auto;
+      opacity: 0.65;
+      transition: opacity 0.3s;
+      filter: grayscale(30%);
+    }
+    .top-logo-bar img:hover { opacity: 1; filter: grayscale(0); }
+    .top-logo-bar .text-logo {
+      font-weight: 800;
+      font-size: 0.95rem;
+      color: var(--gray-700);
+      opacity: 0.65;
+      letter-spacing: -0.3px;
+    }
+
+    /* ── Partner / Linde Feature ── */
+    .partner-feature {
+      background: var(--white);
+      border: 1px solid var(--gray-200);
+      border-radius: var(--radius);
+      padding: 2.5rem;
+      display: grid;
+      grid-template-columns: 200px 1fr;
+      gap: 2.5rem;
+      align-items: center;
+      box-shadow: var(--shadow-card);
+    }
+    .partner-feature .partner-logo {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--gray-100);
+      border-radius: var(--radius-sm);
+      padding: 1.5rem;
+      min-height: 120px;
+    }
+    .partner-feature .partner-logo img { max-width: 100%; max-height: 80px; }
+    .partner-feature h3 { font-size: 1.5rem; margin-bottom: 0.5rem; }
+    .partner-feature .partner-stats {
+      display: flex;
+      gap: 2rem;
+      margin: 1rem 0 1.25rem;
+      flex-wrap: wrap;
+    }
+    .partner-feature .partner-stats div { }
+    .partner-feature .partner-stats strong {
+      display: block;
+      font-size: 1.35rem;
+      color: var(--primary);
+      font-weight: 800;
+    }
+    .partner-feature .partner-stats span {
+      font-size: 0.8rem;
+      color: var(--gray-500);
+    }
+    .partner-quote {
+      background: var(--primary-bg);
+      border-left: 4px solid var(--primary);
+      padding: 1.25rem 1.5rem;
+      border-radius: var(--radius-xs);
+      margin-top: 1.25rem;
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+    }
+    .partner-quote .avatar {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      background: var(--primary);
+      color: var(--white);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 1.1rem;
+      flex-shrink: 0;
+      overflow: hidden;
+    }
+    .partner-quote .avatar img { width: 100%; height: 100%; object-fit: cover; }
+    .partner-quote blockquote {
+      font-style: italic;
+      color: var(--gray-700);
+      font-size: 0.95rem;
+      line-height: 1.7;
+      margin-bottom: 0.5rem;
+    }
+    .partner-quote cite {
+      font-style: normal;
+      font-weight: 700;
+      color: var(--dark);
+      font-size: 0.88rem;
+    }
+    .partner-quote cite small {
+      display: block;
+      font-weight: 400;
+      color: var(--gray-500);
+      font-size: 0.8rem;
+      margin-top: 0.1rem;
+    }
+
+    /* ── Integration Flow (Slide 4) ── */
+    .integration-flow {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+    .integration-step {
+      background: var(--white);
+      border: 1px solid var(--gray-200);
+      border-radius: var(--radius);
+      padding: 1.75rem 1.25rem;
+      text-align: center;
+      position: relative;
+    }
+    .integration-step .step-num {
+      display: inline-flex;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: var(--primary);
+      color: var(--white);
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 0.9rem;
+      margin-bottom: 0.75rem;
+    }
+    .integration-step h4 { font-size: 0.95rem; font-weight: 700; margin-bottom: 0.35rem; }
+    .integration-step p { font-size: 0.82rem; color: var(--gray-500); line-height: 1.6; font-weight: 300; }
+
+    /* ── Modal / Lightbox ── */
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(10, 26, 20, 0.75);
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+      z-index: 2000;
+      padding: 2rem 1rem;
+      overflow-y: auto;
+      align-items: flex-start;
+      justify-content: center;
+    }
+    .modal-overlay.active { display: flex; }
+    .modal-content {
+      background: var(--white);
+      border-radius: var(--radius);
+      max-width: 760px;
+      width: 100%;
+      padding: 2.5rem;
+      position: relative;
+      margin: 2rem auto;
+      box-shadow: 0 25px 80px rgba(0,0,0,0.3);
+    }
+    .modal-close {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      border: none;
+      background: var(--gray-100);
+      color: var(--dark);
+      font-size: 1.5rem;
+      cursor: pointer;
+      line-height: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.2s;
+    }
+    .modal-close:hover { background: var(--gray-200); }
+    .modal-content h2 {
+      font-size: 1.65rem;
+      margin-bottom: 0.35rem;
+      padding-right: 3rem;
+    }
+    .modal-content .modal-meta {
+      color: var(--gray-500);
+      font-size: 0.85rem;
+      margin-bottom: 1.5rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid var(--gray-200);
+    }
+    .modal-content h3 {
+      font-size: 1.05rem;
+      margin: 1.5rem 0 0.5rem;
+      color: var(--primary);
+    }
+    .modal-content h3:first-of-type { margin-top: 0; }
+    .modal-content p,
+    .modal-content li {
+      font-size: 0.92rem;
+      color: var(--gray-700);
+      line-height: 1.7;
+      font-weight: 400;
+    }
+    .modal-content p { margin-bottom: 0.75rem; }
+    .modal-content ul, .modal-content ol { margin: 0.5rem 0 0.75rem 1.25rem; }
+    .modal-content li { margin-bottom: 0.35rem; }
+    .modal-content .callout {
+      background: var(--primary-bg);
+      border-left: 3px solid var(--primary);
+      padding: 0.85rem 1rem;
+      border-radius: var(--radius-xs);
+      margin: 1rem 0;
+      font-size: 0.88rem;
+    }
+    body.modal-open { overflow: hidden; }
+
     /* ── Responsive ── */
     @media (max-width: 1024px) {
       .grid-3 { grid-template-columns: repeat(2, 1fr); }
@@ -527,6 +789,14 @@
       .stat-grid { grid-template-columns: repeat(2, 1fr); }
       .logo-bar { gap: 1.5rem; }
       .trust-grid { grid-template-columns: 1fr; }
+      #hero .hero-grid { grid-template-columns: 1fr; text-align: center; }
+      #hero .hero-grid .section-title,
+      #hero .hero-grid .section-subtitle { text-align: center; }
+      #hero .hero-grid .hero-buttons { justify-content: center; }
+      .partner-feature { grid-template-columns: 1fr; padding: 1.75rem; }
+      .integration-flow { grid-template-columns: repeat(2, 1fr); }
+      .top-logo-bar-inner { gap: 1.5rem; }
+      .modal-content { padding: 1.75rem; }
     }
   </style>
 </head>
@@ -556,21 +826,42 @@
   </div>
 </nav>
 
+<!-- ── Top Logo Bar (Vertrauenslogos) ── -->
+<div class="top-logo-bar">
+  <div class="top-logo-bar-inner">
+    <span class="label">In Zusammenarbeit mit</span>
+    <span class="text-logo">Linde Verlag</span>
+    <span class="text-logo">Wirtschaftskammer</span>
+    <span class="text-logo">InCite</span>
+    <span class="text-logo">BMF</span>
+    <span class="text-logo">SVS</span>
+    <span class="text-logo">RIS</span>
+    <img src="aws.webp" alt="AWS" style="height: 24px;">
+  </div>
+</div>
+
 <!-- ── Hero ── -->
 <section id="hero">
   <div class="container">
-    <div class="hero-badge">
-      <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
-      14 Tage kostenlos testen - keine Kreditkarte nötig
-    </div>
-    <h1 class="section-title">Dein quellenbasierter Co-Pilot für Gründung, Steuern und Förderungen</h1>
-    <p class="section-subtitle mx-auto">Nicht einfach KI - sondern geprüftes Fachwissen aus 60 Fachbüchern und offiziellen österreichischen Quellen. Mit Quellenangabe, Handlungsempfehlung und klarer Einschätzung, wann du zum Steuerberater solltest.</p>
-    <div class="hero-buttons">
-      <a href="https://wa.me/4366012345678" target="_blank" rel="noopener" class="btn btn-whatsapp btn-lg">
-        <svg class="wa-icon" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-        14 Tage kostenlos testen
-      </a>
-      <a href="#pricing" class="btn btn-outline btn-lg">Preise ansehen</a>
+    <div class="hero-grid">
+      <div>
+        <div class="hero-badge">
+          <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+          14 Tage kostenlos testen - keine Kreditkarte nötig
+        </div>
+        <h1 class="section-title">Dein quellenbasierter Co-Pilot für Gründung, Steuern und Förderungen</h1>
+        <p class="section-subtitle">Nicht einfach KI - sondern geprüftes Fachwissen aus 60 Fachbüchern und offiziellen österreichischen Quellen. Mit Quellenangabe, Handlungsempfehlung und klarer Einschätzung, wann du zum Steuerberater solltest.</p>
+        <div class="hero-buttons">
+          <a href="https://wa.me/4366012345678" target="_blank" rel="noopener" class="btn btn-whatsapp btn-lg">
+            <svg class="wa-icon" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            14 Tage kostenlos testen
+          </a>
+          <a href="#pricing" class="btn btn-outline btn-lg">Preise ansehen</a>
+        </div>
+      </div>
+      <div class="hero-phone">
+        <img src="Gemini_Generated_Image_4v7w264v7w264v7w.png" alt="WhatsApp-Chat mit dem Gründerbuddy - Beispiel-Konversation">
+      </div>
     </div>
   </div>
 </section>
@@ -747,51 +1038,142 @@
   </div>
 </section>
 
-<!-- ── EU Datenschutz ── -->
+<!-- ── EU Datenschutz (Slide 7) ── -->
 <section class="section-dark" id="datenschutz">
   <div class="container">
     <div class="text-center">
-      <p class="section-label">Datenschutz</p>
+      <p class="section-label">DSGVO &amp; Sicherheit</p>
       <h2 class="section-title">Datenschutzkonform in der EU gehostet</h2>
-      <p class="section-subtitle mx-auto">Deine Daten bleiben in Europa. Punkt. Wir erfüllen die strengsten Datenschutzanforderungen - weil dein Vertrauen nicht verhandelbar ist.</p>
+      <p class="section-subtitle mx-auto">Deine Daten bleiben in Europa. Punkt. Volle DSGVO-Konformität nach Art. 6 Abs. 1 lit. b und lit. f DSGVO - Hosting auf AWS in Frankfurt (eu-central-1), verschlüsselt, mandantengetrennt und ohne Nutzung für KI-Training.</p>
     </div>
     <div class="grid-4" style="margin-top: 1rem;">
       <div class="card" style="text-align: center;">
         <div class="card-icon" style="margin: 0 auto 1rem;">&#127466;&#127482;</div>
-        <h3>EU-Server</h3>
-        <p>Alle Daten werden ausschließlich auf Servern innerhalb der EU gespeichert.</p>
+        <h3>EU-Hosting (Frankfurt)</h3>
+        <p>Komplette Infrastruktur auf AWS eu-central-1. Keine Datenübertragung in Drittstaaten ohne Standardvertragsklauseln.</p>
       </div>
       <div class="card" style="text-align: center;">
         <div class="card-icon" style="margin: 0 auto 1rem;">&#128274;</div>
-        <h3>AES-256 & TLS</h3>
-        <p>Verschlüsselung bei Übertragung und Speicherung nach höchsten Standards.</p>
+        <h3>AES-256 &amp; TLS</h3>
+        <p>Verschlüsselung bei Übertragung (TLS) und Speicherung (AES-256). Webhook-Signaturvalidierung und rollenbasierte Zugriffsverwaltung.</p>
       </div>
       <div class="card" style="text-align: center;">
         <div class="card-icon" style="margin: 0 auto 1rem;">&#128683;</div>
-        <h3>Kein Datenverkauf</h3>
-        <p>Wir teilen deine Daten niemals mit Dritten oder nutzen sie für KI-Training.</p>
+        <h3>Kein KI-Training</h3>
+        <p>Wir nutzen deine Daten niemals für Modell-Training. An den KI-Anbieter gehen nur Nachrichteninhalte - ohne Telefonnummer oder Identifier.</p>
       </div>
       <div class="card" style="text-align: center;">
         <div class="card-icon" style="margin: 0 auto 1rem;">&#9989;</div>
-        <h3>DSGVO-konform</h3>
-        <p>Volle Konformität mit europäischem Datenschutzrecht.</p>
+        <h3>Volle Nutzerrechte</h3>
+        <p>Auskunft, Berichtigung, Löschung, Datenübertragbarkeit - alle DSGVO-Rechte werden innerhalb von 30 Tagen bearbeitet.</p>
+      </div>
+    </div>
+    <div class="grid-3" style="margin-top: 2rem;">
+      <div class="card">
+        <h3 style="color: var(--white);">Mandantentrennung</h3>
+        <p>Jede:r Nutzer:in wird strikt isoliert - Konversationen, Rechnungsdaten und Metadaten bleiben streng separiert.</p>
+      </div>
+      <div class="card">
+        <h3 style="color: var(--white);">Zahlungsdaten bei Stripe</h3>
+        <p>Wir speichern selbst keine vollständigen Zahlungsdaten. Verarbeitung ausschließlich über Stripe (PCI-DSS Level 1).</p>
+      </div>
+      <div class="card">
+        <h3 style="color: var(--white);">Klare Speicherdauer</h3>
+        <p>Konversationsdaten 12 Monate nach letzter Interaktion, danach Anonymisierung. Rechnungsdaten gemäß § 132 BAO.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ── Video: Alexander Pillitsch ── -->
-<section>
+<!-- ── Integration (PPT Slide 4) ── -->
+<section id="integration">
   <div class="container">
-    <div class="video-section reverse">
-      <div class="video-embed">
-        <div class="video-embed-placeholder">Loom-Video wird geladen...<br>Link folgt</div>
+    <div class="text-center">
+      <p class="section-label">Integration & Workflow</p>
+      <h2 class="section-title">In 4 Schritten zur geprüften Antwort</h2>
+      <p class="section-subtitle mx-auto">Von deiner Frage in WhatsApp bis zur quellenbasierten Antwort - so verbindet der Gründerbuddy kuratiertes Fachwissen mit moderner KI.</p>
+    </div>
+    <div class="integration-flow">
+      <div class="integration-step">
+        <div class="step-num">1</div>
+        <h4>Frage stellen</h4>
+        <p>Sende deine Frage per Text oder Sprachnachricht an die WhatsApp-Nummer des Buddys.</p>
       </div>
-      <div class="video-info">
-        <p class="section-label">Kommentar</p>
-        <h3>Alexander Pillitsch</h3>
-        <p class="role">Experte & Unternehmer</p>
-        <p>Warum quellenbasierte KI-Assistenten die Zukunft der Gründerberatung in Österreich sind - und was den Founder Buddy von generischen Tools unterscheidet.</p>
+      <div class="integration-step">
+        <div class="step-num">2</div>
+        <h4>Wissensbasis durchsucht</h4>
+        <p>Die KI durchsucht 60+ Fachbücher, WKO, BMF, SVS und RIS nach relevanten Passagen.</p>
+      </div>
+      <div class="integration-step">
+        <div class="step-num">3</div>
+        <h4>Antwort generiert</h4>
+        <p>Quellenbasierte Antwort mit Klarheitsgrad-Indikator und direktem Zitat der Quelle.</p>
+      </div>
+      <div class="integration-step">
+        <div class="step-num">4</div>
+        <h4>Handlungsempfehlung</h4>
+        <p>Klarer Next-Step oder - bei komplexen Fällen - Empfehlung zur Konsultation eines Profis.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Linde Bibliothek ── -->
+<section id="linde-library" class="section-gray">
+  <div class="container">
+    <div class="text-center">
+      <p class="section-label">Exklusive Wissensbasis</p>
+      <h2 class="section-title">57 Fachtitel der Bibliothek Start-Up &amp; KMU</h2>
+      <p class="section-subtitle mx-auto">Der Gründerbuddy basiert auf der kuratierten Online-Bibliothek des Linde Verlags - geprüftes österreichisches Fachwissen zu Steuern, Recht, Gründung und Unternehmensführung.</p>
+    </div>
+    <div class="partner-feature">
+      <div class="partner-logo">
+        <img src="https://shop.lindeverlag.at/_images_global/linde_footer.svg" alt="Linde Verlag">
+      </div>
+      <div>
+        <h3>Bibliothek Start-Up &amp; KMU</h3>
+        <p style="color: var(--gray-500); font-size: 0.95rem; line-height: 1.7; font-weight: 300;">Die digitale Fachbibliothek des Linde Verlags bündelt das relevante Wissen für Gründer:innen und KMU in Österreich. Statt tausende Euro für Einzelbücher auszugeben, nutzt du das geprüfte Wissen direkt über WhatsApp.</p>
+        <div class="partner-stats">
+          <div><strong>57</strong><span>Fachtitel</span></div>
+          <div><strong>&euro;612</strong><span>Jahreswert / Lizenz</span></div>
+          <div><strong>100%</strong><span>AT-rechtskonform</span></div>
+        </div>
+        <a href="https://shop.lindeverlag.at/onlineprodukt/bibliothek-start-up-kmu-4086" target="_blank" rel="noopener" class="btn btn-outline">Zur Linde-Bibliothek</a>
+        <div class="partner-quote">
+          <div class="avatar">L</div>
+          <div>
+            <blockquote>&bdquo;Mit dem Gründerbuddy gelangt das geprüfte Fachwissen aus unserer Bibliothek dorthin, wo Gründer:innen wirklich Antworten brauchen - schnell, verlässlich und mit Quellenverweis. Ein wertvoller Brückenschlag zwischen Fachliteratur und unternehmerischem Alltag.&rdquo;</blockquote>
+            <cite>Linde Verlag<small>Partner des Austrian Founder Buddy</small></cite>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── InCite Partnerschaft ── -->
+<section id="incite-partner">
+  <div class="container">
+    <div class="text-center">
+      <p class="section-label">Partnerschaft</p>
+      <h2 class="section-title">Mit InCite - der Bildungspartner der Wirtschaftskammer</h2>
+      <p class="section-subtitle mx-auto">InCite ist die Bildungsorganisation der österreichischen Wirtschaftskammer für Steuerberater:innen, Wirtschaftsprüfer:innen und Unternehmensberater:innen. Gemeinsam bringen wir geprüftes Wissen zu Österreichs Gründer:innen.</p>
+    </div>
+    <div class="partner-feature">
+      <div class="partner-logo">
+        <img src="https://www.incite.at/upload/design/logo.png" alt="InCite">
+      </div>
+      <div>
+        <h3>Qualitätspartnerschaft für die Gründerberatung</h3>
+        <p style="color: var(--gray-500); font-size: 0.95rem; line-height: 1.7; font-weight: 300;">InCite steht für höchste Qualität in der Aus- und Weiterbildung der österreichischen Berater:innen-Community. Die Partnerschaft stellt sicher, dass der Gründerbuddy genau dort ansetzt, wo Standardfragen standardisiert beantwortet werden können - und wo die individuelle Expertise der Profis beginnt.</p>
+        <a href="https://www.incite.at/" target="_blank" rel="noopener" class="btn btn-outline">Mehr über InCite</a>
+        <div class="partner-quote">
+          <div class="avatar">AS</div>
+          <div>
+            <blockquote>&bdquo;Qualität in der Beratung beginnt bei guten Grundlagen. Der Gründerbuddy beantwortet typische Standardfragen quellenbasiert und erkennt, wann eine individuelle Beratung nötig ist. Das entlastet Berater:innen und schafft echte Mehrwerte für Gründer:innen.&rdquo;</blockquote>
+            <cite>Mag. Andreas Schweighofer<small>Geschäftsführer, InCite</small></cite>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -1099,7 +1481,9 @@
       <ul>
         <li><a href="#hero">Start</a></li>
         <li><a href="#zielgruppen">Zielgruppen</a></li>
-        <li><a href="#trust">Vertrauen</a></li>
+        <li><a href="#linde-library">Linde-Bibliothek</a></li>
+        <li><a href="#incite-partner">Partner</a></li>
+        <li><a href="#datenschutz">DSGVO</a></li>
         <li><a href="#pricing">Preise</a></li>
         <li><a href="#kontakt">Kontakt</a></li>
       </ul>
@@ -1107,14 +1491,190 @@
     <div>
       <h4>Rechtliches</h4>
       <ul>
-        <li><a href="https://www.mindtech.at/privacy" target="_blank" rel="noopener">Datenschutz</a></li>
-        <li><a href="https://www.mindtech.at/docs/terms/mindtech_terms_and_conditions.pdf" target="_blank" rel="noopener">AGB</a></li>
+        <li><a href="#" onclick="openModal('modal-agb'); return false;">AGB</a></li>
+        <li><a href="#" onclick="openModal('modal-datenschutz'); return false;">Datenschutz</a></li>
+        <li><a href="#" onclick="openModal('modal-subscription'); return false;">Subscription Terms</a></li>
+        <li><a href="#" onclick="openModal('modal-refund'); return false;">Refund Policy</a></li>
         <li><a href="#imprint">Impressum</a></li>
       </ul>
     </div>
   </div>
-  <div class="footer-bottom">&copy; 2026 Austrian Founder Buddy. Alle Rechte vorbehalten.</div>
+  <div class="footer-bottom">&copy; 2026 Austrian Founder Buddy &middot; Budd.ai FlexCo. Alle Rechte vorbehalten.</div>
 </footer>
+
+<!-- ── Modals / Lightboxes ── -->
+<div class="modal-overlay" id="modal-agb" onclick="if(event.target===this) closeModal('modal-agb')">
+  <div class="modal-content">
+    <button class="modal-close" onclick="closeModal('modal-agb')" aria-label="Schließen">&times;</button>
+    <h2>Allgemeine Geschäftsbedingungen</h2>
+    <div class="modal-meta">Budd.ai FlexCo &middot; Stand: April 2026</div>
+
+    <h3>§ 1 Geltungsbereich</h3>
+    <p>Diese AGB gelten für die Nutzung des Dienstes „Gründerbuddy", betrieben von der Budd.ai FlexCo, mit Sitz in Österreich. Der Dienst richtet sich an Gründer:innen, EPU und Kleinunternehmer:innen in Österreich.</p>
+    <p>Mit der Registrierung bzw. Nutzung akzeptiert der/die Nutzer:in diese AGB. Änderungen werden mit 14 Tagen Vorankündigung wirksam.</p>
+
+    <h3>§ 2 Leistungsbeschreibung</h3>
+    <p>Der Gründerbuddy ist ein KI-gestützter Orientierungsassistent über WhatsApp. Er liefert quellenbasierte Ersteinschätzungen auf Basis kuratierter Fachinhalte (Linde Verlag, WKO, RIS, BMF, Förderportale).</p>
+
+    <h3>§ 3 Keine Rechts- oder Steuerberatung</h3>
+    <div class="callout"><strong>Wichtiger Hinweis:</strong> Der Gründerbuddy stellt keine Rechts-, Steuer- oder Wirtschaftsberatung dar. Alle Antworten sind unverbindliche Orientierungshilfen.</div>
+    <p>Die Antworten ersetzen keine individuelle Beratung durch Steuerberater:innen, Rechtsanwält:innen oder Unternehmensberater:innen. Bei komplexen Fragen verweist der Dienst ausdrücklich an Fachleute.</p>
+    <p>Der Anbieter haftet nicht für Schäden (Steuernachforderungen, entgangenen Gewinn, behördliche Strafen) - Haftung beschränkt auf Vorsatz und grobe Fahrlässigkeit.</p>
+
+    <h3>§ 4 Nutzungsvoraussetzungen</h3>
+    <ul>
+      <li>Vollendung des 18. Lebensjahres und Geschäftsfähigkeit</li>
+      <li>WhatsApp-Konto (Nutzungsbedingungen der Meta Platforms Ireland Ltd. gelten)</li>
+      <li>Nutzung nur für gesetzmäßige Zwecke, kein Spam, keine Massenanfragen</li>
+    </ul>
+
+    <h3>§ 5 Verfügbarkeit</h3>
+    <p>24/7-Verfügbarkeit wird angestrebt, ist aber nicht garantiert. Wartungsarbeiten werden vorab angekündigt.</p>
+
+    <h3>§ 6 Geistiges Eigentum</h3>
+    <p>Alle Rechte an Software, Design und Wissensbasis verbleiben beim Anbieter bzw. Lizenzgebern. Systematisches Kopieren oder Weiterverbreiten der Antworten ist untersagt.</p>
+
+    <h3>§ 7 Nutzersperre und Kündigung</h3>
+    <p>Bei AGB-Verstößen kann der Zugang vorübergehend oder dauerhaft gesperrt werden. Ordentliche Kündigung durch Nutzer:in jederzeit gemäß Subscription Terms.</p>
+
+    <h3>§ 8 Schlussbestimmungen</h3>
+    <p>Österreichisches Recht (ohne UN-Kaufrecht). Gerichtsstand Wien. Salvatorische Klausel. Der Anbieter ist nicht verpflichtet, an Verbraucherschlichtungsverfahren teilzunehmen, ist aber dazu bereit.</p>
+  </div>
+</div>
+
+<div class="modal-overlay" id="modal-datenschutz" onclick="if(event.target===this) closeModal('modal-datenschutz')">
+  <div class="modal-content">
+    <button class="modal-close" onclick="closeModal('modal-datenschutz')" aria-label="Schließen">&times;</button>
+    <h2>Datenschutzerklärung</h2>
+    <div class="modal-meta">Budd.ai FlexCo &middot; Stand: April 2026</div>
+
+    <h3>§ 1 Verantwortlicher</h3>
+    <p><strong>Budd.ai FlexCo</strong><br>Sitz: Österreich &middot; E-Mail: hallo@budd.ai &middot; Web: https://gruenderbuddy.at</p>
+
+    <h3>§ 2 Verarbeitete Daten</h3>
+    <p><strong>WhatsApp-Nutzung:</strong> Telefonnummer, Nachrichteninhalte, Zeitstempel, Meta-Metadaten.</p>
+    <p><strong>Abonnement:</strong> E-Mail, Telefonnummer, Zahlungsinformationen (über Stripe), Rechnungsadresse.</p>
+
+    <h3>§ 3 Rechtsgrundlage</h3>
+    <ul>
+      <li>Abonnent:innen: Art. 6 (1) lit. b DSGVO (Vertragserfüllung)</li>
+      <li>WhatsApp-Nutzer:innen: Art. 6 (1) lit. f DSGVO (berechtigtes Interesse, LIA dokumentiert)</li>
+      <li>Website-Besucher:innen: Art. 6 (1) lit. a DSGVO (Einwilligung)</li>
+    </ul>
+
+    <h3>§ 4 Zwecke</h3>
+    <p>Erbringung des Dienstes, Abrechnung (Stripe), Verbesserung durch anonymisierte Nutzungsmuster, gesetzliche Aufbewahrung, Support.</p>
+
+    <h3>§ 5 Stripe</h3>
+    <p>Zahlungsabwicklung über Stripe Payments Europe Ltd. (Dublin, Irland). Wir haben keinen Zugriff auf vollständige Zahlungsdaten. PCI-DSS Level 1 zertifiziert.</p>
+
+    <h3>§ 6 Drittanbieter</h3>
+    <ul>
+      <li><strong>WhatsApp/Meta:</strong> Meta Platforms Ireland Ltd., Übermittlung USA auf Basis EU-Standardvertragsklauseln</li>
+      <li><strong>AWS:</strong> Hosting in EU-Rechenzentren (eu-central-1, Frankfurt)</li>
+      <li><strong>KI-Modell-Anbieter:</strong> Nur Nachrichteninhalte ohne identifizierende Daten werden übermittelt</li>
+    </ul>
+
+    <h3>§ 7 Speicherdauer</h3>
+    <ul>
+      <li>Konversationsdaten: 12 Monate nach letzter Interaktion</li>
+      <li>Account-Daten: Vertragsdauer + 30 Tage</li>
+      <li>Rechnungsdaten: 7 Jahre (§ 132 BAO)</li>
+      <li>Nutzungsstatistiken: anonymisiert, zeitlich unbegrenzt</li>
+    </ul>
+
+    <h3>§ 8 Deine Rechte (DSGVO)</h3>
+    <p>Auskunft (Art. 15), Berichtigung (Art. 16), Löschung (Art. 17), Einschränkung (Art. 18), Datenübertragbarkeit (Art. 20), Widerspruch (Art. 21), Widerruf (Art. 7 Abs. 3). Bearbeitung innerhalb 30 Tagen über hallo@budd.ai.</p>
+
+    <h3>§ 9 Beschwerderecht</h3>
+    <p>Österreichische Datenschutzbehörde, Barichgasse 40-42, 1030 Wien &middot; dsb@dsb.gv.at &middot; https://www.dsb.gv.at</p>
+
+    <h3>§ 10 Cookies</h3>
+    <p>Nur technisch notwendige Cookies. Analyse/Marketing nur mit Einwilligung. Der WhatsApp-Dienst setzt keine Cookies ein.</p>
+
+    <h3>§ 11 Datensicherheit</h3>
+    <p>TLS/AES-256-Verschlüsselung, Mandantentrennung, API-Key-Authentifizierung, Webhook-Signaturvalidierung, regelmäßige Sicherheitsüberprüfungen.</p>
+  </div>
+</div>
+
+<div class="modal-overlay" id="modal-subscription" onclick="if(event.target===this) closeModal('modal-subscription')">
+  <div class="modal-content">
+    <button class="modal-close" onclick="closeModal('modal-subscription')" aria-label="Schließen">&times;</button>
+    <h2>Subscription Terms</h2>
+    <div class="modal-meta">Budd.ai FlexCo &middot; Stand: April 2026</div>
+
+    <h3>§ 1 Geltungsbereich</h3>
+    <p>Diese Subscription Terms regeln das kostenpflichtige Abonnement des Gründerbuddys und ergänzen die AGB.</p>
+
+    <h3>§ 2 Tarif und Preis</h3>
+    <div class="callout">
+      <strong>Starter &middot; 4,90 &euro; / Monat (inkl. USt.)</strong><br>
+      30 Nachrichten/Monat &middot; WhatsApp &middot; quellenbasierte Antworten &middot; 14 Tage kostenlos testen
+    </div>
+    <p>Preisanpassungen mit 30 Tagen Vorankündigung zum nächsten Abrechnungszeitraum möglich.</p>
+
+    <h3>§ 3 Vertragsschluss und Laufzeit</h3>
+    <p>Vertrag kommt mit Checkout zustande. Monatliche Abrechnung. <strong>Automatische Verlängerung</strong> um jeweils einen Monat, sofern nicht vor Ablauf gekündigt.</p>
+
+    <h3>§ 4 Kostenlose Testphase (Trial)</h3>
+    <p>14 Tage kostenlos mit vollem Funktionsumfang. Nach Ablauf Umwandlung in kostenpflichtiges Abo, sofern nicht gekündigt.</p>
+
+    <h3>§ 5 Zahlungsabwicklung</h3>
+    <p>Zahlung ausschließlich über Stripe (Stripe Payments Europe Ltd., Irland). Akzeptiert werden Kredit-/Debitkarte und weitere Stripe-Methoden. Bei fehlgeschlagener Zahlung kann der Zugang nach 7-tägiger Nachfrist eingeschränkt werden.</p>
+
+    <h3>§ 6 Kündigung</h3>
+    <ul>
+      <li>Jederzeit zum Ende des laufenden Abrechnungszeitraums über den Account</li>
+      <li>Zugang bleibt bis Periodenende bestehen</li>
+      <li>Anbieter kann mit 30 Tagen zum Monatsende kündigen; allfälliges Guthaben wird anteilig erstattet</li>
+      <li>Außerordentliche Kündigung aus wichtigem Grund bleibt unberührt</li>
+    </ul>
+
+    <h3>§ 7 Nachrichtenlimits</h3>
+    <p>30 Nachrichten pro Kalendermonat im Starter-Tarif. Nicht genutzte Nachrichten verfallen am Monatsende. Bei Erreichen des Limits erfolgt eine Benachrichtigung.</p>
+  </div>
+</div>
+
+<div class="modal-overlay" id="modal-refund" onclick="if(event.target===this) closeModal('modal-refund')">
+  <div class="modal-content">
+    <button class="modal-close" onclick="closeModal('modal-refund')" aria-label="Schließen">&times;</button>
+    <h2>Refund Policy</h2>
+    <div class="modal-meta">Budd.ai FlexCo &middot; Stand: April 2026</div>
+
+    <h3>§ 1 Grundsätzliches</h3>
+    <p>Diese Refund Policy regelt Erstattungen für das Starter-Abonnement des Gründerbuddys und ergänzt AGB und Subscription Terms.</p>
+
+    <h3>§ 2 Widerrufsrecht (Fernabsatz)</h3>
+    <p>Verbraucher:innen (KSchG) haben das Recht, binnen 14 Tagen ab Vertragsschluss ohne Angabe von Gründen zu widerrufen. Widerruf formlos per E-Mail an hallo@budd.ai oder per WhatsApp.</p>
+    <p>Bei wirksamem Widerruf erfolgt vollständige Erstattung. Bei bereits genutztem Dienst kann ein angemessener Betrag einbehalten werden.</p>
+    <div class="callout"><strong>Tipp:</strong> Nutze die 14-tägige kostenlose Testphase vor einer Zahlungspflicht ausführlich - das ist meist der einfachste Weg.</div>
+
+    <h3>§ 3 Erstattung bei Kündigung</h3>
+    <p>Bei ordentlicher Kündigung durch den/die Nutzer:in: keine anteilige Erstattung, Zugang bleibt bis Periodenende bestehen. Bei Kündigung durch den Anbieter: anteilige Erstattung allfälliger Guthaben.</p>
+
+    <h3>§ 4 Kulanzregelung</h3>
+    <p>Erstattung auf Kulanzbasis bei:</p>
+    <ul>
+      <li>Technischen Störungen, die eine Nutzung für mehr als 7 zusammenhängende Tage unmöglich gemacht haben</li>
+      <li>Doppelabbuchungen oder sonstigen Abrechnungsfehlern</li>
+      <li>Besonderen Härtefällen nach Ermessen des Anbieters</li>
+    </ul>
+    <p>Kulanzerstattungen innerhalb von 14 Werktagen über Stripe.</p>
+
+    <h3>§ 5 Keine Erstattung</h3>
+    <p>Keine Erstattung bei: nicht ausgeschöpftem Nachrichtenlimit, inhaltlicher Unzufriedenheit (Dienst ist Orientierungshilfe, keine Beratung), Sperrung wegen AGB-Verstößen.</p>
+
+    <h3>§ 6 Verfahren</h3>
+    <ol>
+      <li>Erstattungsantrag per E-Mail an hallo@budd.ai mit Name, E-Mail, Telefonnummer (WhatsApp), Grund</li>
+      <li>Bearbeitung innerhalb von 5 Werktagen</li>
+      <li>Rückbuchung über Stripe auf die ursprüngliche Zahlungsmethode (5-10 Werktage)</li>
+    </ol>
+
+    <h3>§ 7 Chargebacks</h3>
+    <p>Bitte vor einem Chargeback zunächst den Anbieter direkt kontaktieren. Unberechtigte Chargebacks können zur Kontosperrung führen.</p>
+  </div>
+</div>
 
 <script>
 function switchTab(tab) {
@@ -1123,6 +1683,21 @@ function switchTab(tab) {
   document.getElementById('tab-' + tab).classList.add('active');
   event.target.classList.add('active');
 }
+
+function openModal(id) {
+  document.getElementById(id).classList.add('active');
+  document.body.classList.add('modal-open');
+}
+function closeModal(id) {
+  document.getElementById(id).classList.remove('active');
+  document.body.classList.remove('modal-open');
+}
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') {
+    document.querySelectorAll('.modal-overlay.active').forEach(m => m.classList.remove('active'));
+    document.body.classList.remove('modal-open');
+  }
+});
 </script>
 
 </body>

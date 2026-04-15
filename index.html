@@ -70,8 +70,8 @@
     }
 
     .logo { display: flex; align-items: center; text-decoration: none; }
-    .logo-mark { display: flex; align-items: center; height: 44px; }
-    .logo-mark svg, .logo-mark img { height: 44px; width: auto; display: block; }
+    .logo-mark { display: flex; align-items: center; height: 56px; }
+    .logo-mark svg, .logo-mark img { height: 56px; width: auto; display: block; }
 
     .btn {
       display: inline-flex;
@@ -538,10 +538,10 @@
 
     /* ── Trust Logo Strip ── */
     .trust-strip {
-      background: var(--white);
+      background: var(--gray-100);
       border-top: 1px solid var(--gray-200);
       border-bottom: 1px solid var(--gray-200);
-      padding: 2rem 2rem;
+      padding: 3.5rem 2rem;
     }
     .trust-strip-inner {
       max-width: 1140px;
@@ -549,12 +549,12 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 1.5rem;
+      gap: 2.25rem;
     }
     .trust-strip .label {
-      font-size: 0.72rem;
+      font-size: 0.85rem;
       font-weight: 700;
-      letter-spacing: 2.5px;
+      letter-spacing: 3px;
       color: var(--gray-500);
       text-transform: uppercase;
     }
@@ -562,17 +562,17 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 3rem;
+      gap: 4rem;
       flex-wrap: wrap;
     }
     .trust-strip-logos img {
-      height: 38px;
+      height: 56px;
       width: auto;
-      max-width: 140px;
+      max-width: 200px;
       object-fit: contain;
-      opacity: 0.7;
+      opacity: 0.75;
       transition: opacity 0.3s, filter 0.3s;
-      filter: grayscale(60%);
+      filter: grayscale(50%);
     }
     .trust-strip-logos img:hover { opacity: 1; filter: grayscale(0); }
 
@@ -693,6 +693,53 @@
     .integration-step h4 { font-size: 0.95rem; font-weight: 700; margin-bottom: 0.35rem; }
     .integration-step p { font-size: 0.82rem; color: var(--gray-500); line-height: 1.6; font-weight: 300; }
 
+    /* ── Mockup Showcase ── */
+    .mockup-showcase {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2.5rem;
+      margin-top: 3rem;
+    }
+    .mockup-card {
+      background: var(--white);
+      border: 1px solid var(--gray-200);
+      border-radius: var(--radius);
+      padding: 2rem;
+      text-align: center;
+      transition: all 0.3s ease;
+    }
+    .mockup-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-lg);
+    }
+    .mockup-card .mockup-frame {
+      background: var(--gray-100);
+      border-radius: var(--radius-sm);
+      padding: 1.25rem;
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 320px;
+    }
+    .mockup-card .mockup-frame img {
+      max-width: 100%;
+      max-height: 420px;
+      width: auto;
+      height: auto;
+      border-radius: 8px;
+    }
+    .mockup-card h3 {
+      font-size: 1.2rem;
+      margin-bottom: 0.5rem;
+    }
+    .mockup-card p {
+      color: var(--gray-500);
+      font-size: 0.95rem;
+      line-height: 1.7;
+      font-weight: 300;
+    }
+
     /* ── Modal / Lightbox ── */
     .modal-overlay {
       display: none;
@@ -796,6 +843,7 @@
       #hero .hero-grid .hero-buttons { justify-content: center; }
       .partner-feature { grid-template-columns: 1fr; padding: 1.75rem; }
       .integration-flow { grid-template-columns: repeat(2, 1fr); }
+      .mockup-showcase { grid-template-columns: 1fr; gap: 1.5rem; }
       .top-logo-bar-inner { gap: 1.5rem; }
       .modal-content { padding: 1.75rem; }
     }
@@ -844,7 +892,21 @@
   </div>
 </section>
 
-<div class="divider"></div>
+<!-- ── Trust Logo Strip ── -->
+<div class="trust-strip">
+  <div class="trust-strip-inner">
+    <span class="label">Quellen &amp; Partner</span>
+    <div class="trust-strip-logos">
+      <img src="https://shop.lindeverlag.at/_images_global/linde_footer.svg" alt="Linde Verlag">
+      <img src="https://logo.clearbit.com/wko.at" alt="Wirtschaftskammer Österreich">
+      <img src="https://www.incite.at/upload/design/logo.png" alt="InCite">
+      <img src="https://logo.clearbit.com/bmf.gv.at" alt="Bundesministerium für Finanzen">
+      <img src="https://logo.clearbit.com/svs.at" alt="Sozialversicherung der Selbständigen">
+      <img src="https://logo.clearbit.com/ris.bka.gv.at" alt="Rechtsinformationssystem">
+      <img src="aws.webp" alt="AWS">
+    </div>
+  </div>
+</div>
 
 <!-- ── Video: Andreas Kraus ── -->
 <section id="video-andreas">
@@ -941,6 +1003,33 @@
   </div>
 </section>
 
+<!-- ── Mockup Showcase: So funktioniert's ── -->
+<section id="mockup-showcase" class="section-gray">
+  <div class="container">
+    <div class="text-center">
+      <p class="section-label">Blick in den Chat</p>
+      <h2 class="section-title">So sieht der Gründerbuddy in der Praxis aus</h2>
+      <p class="section-subtitle mx-auto">Zwei typische Szenarien aus dem Unternehmer-Alltag - direkt im WhatsApp-Chat, mit strukturierten Antworten, Checklisten und klaren nächsten Schritten.</p>
+    </div>
+    <div class="mockup-showcase">
+      <div class="mockup-card">
+        <div class="mockup-frame">
+          <img src="screen.png" alt="Mockup: Chat-Verlauf mit dem Gründerbuddy zu Gründungsfragen">
+        </div>
+        <h3>Strukturierte Antworten mit Checkliste</h3>
+        <p>Komplexe Fragen wie die Anmeldung beim Finanzamt werden in klare Schritte zerlegt - inklusive passender Formulare, Fristen und direkter Links zu den offiziellen Quellen.</p>
+      </div>
+      <div class="mockup-card">
+        <div class="mockup-frame">
+          <img src="Unbenannt.png" alt="Mockup: Weiterer Beispiel-Chat mit dem Gründerbuddy">
+        </div>
+        <h3>Direkt im WhatsApp-Flow</h3>
+        <p>Keine App, kein Login, keine Umgewöhnung. Der Buddy antwortet in der gewohnten Chat-Oberfläche - mit Quellenverweis und klarer Handlungsempfehlung für den nächsten Schritt.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ── Video: Kambis Kohansal-Vajargah ── -->
 <section>
   <div class="container">
@@ -995,6 +1084,20 @@
           <p>Der Buddy gibt Orientierung und Handlungsempfehlungen, ersetzt aber bewusst keine individuelle Rechts- oder Steuerberatung.</p>
         </div>
       </div>
+      <div class="trust-card">
+        <div class="trust-icon">&#128200;</div>
+        <div>
+          <h4>Klarheitsgrad-Indikator</h4>
+          <p>Jede Antwort zeigt transparent, wie sicher die Auskunft ist - von „verlässlich quellenbasiert" bis „bitte Fachperson konsultieren".</p>
+        </div>
+      </div>
+      <div class="trust-card">
+        <div class="trust-icon">&#127462;&#127481;</div>
+        <div>
+          <h4>Speziell für Österreich</h4>
+          <p>Keine generischen Antworten aus anderen Rechtsordnungen. Die Wissensbasis ist ausschließlich auf österreichisches Recht, WKO, BMF, SVS und RIS abgestimmt.</p>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -1022,7 +1125,7 @@
     <div class="text-center">
       <p class="section-label">DSGVO &amp; Sicherheit</p>
       <h2 class="section-title">Datenschutzkonform in der EU gehostet</h2>
-      <p class="section-subtitle mx-auto">Deine Daten bleiben in Europa. Punkt. Volle DSGVO-Konformität nach Art. 6 Abs. 1 lit. b und lit. f DSGVO - Hosting auf AWS in Frankfurt (eu-central-1), verschlüsselt, mandantengetrennt und ohne Nutzung für KI-Training.</p>
+      <p class="section-subtitle mx-auto">Deine Daten bleiben in Europa. Punkt. Volle DSGVO-Konformität nach Art. 6 Abs. 1 lit. b und lit. f DSGVO - Hosting auf AWS in Frankfurt (eu-central-1), verschlüsselt und mandantengetrennt.</p>
     </div>
     <div class="grid-4" style="margin-top: 1rem;">
       <div class="card" style="text-align: center;">
@@ -1036,9 +1139,9 @@
         <p>Verschlüsselung bei Übertragung (TLS) und Speicherung (AES-256). Webhook-Signaturvalidierung und rollenbasierte Zugriffsverwaltung.</p>
       </div>
       <div class="card" style="text-align: center;">
-        <div class="card-icon" style="margin: 0 auto 1rem;">&#128683;</div>
-        <h3>Kein KI-Training</h3>
-        <p>Wir nutzen deine Daten niemals für Modell-Training. An den KI-Anbieter gehen nur Nachrichteninhalte - ohne Telefonnummer oder Identifier.</p>
+        <div class="card-icon" style="margin: 0 auto 1rem;">&#128737;</div>
+        <h3>Minimale Datenweitergabe</h3>
+        <p>An den KI-Anbieter gehen ausschließlich Nachrichteninhalte - ohne Telefonnummer oder identifizierende Metadaten.</p>
       </div>
       <div class="card" style="text-align: center;">
         <div class="card-icon" style="margin: 0 auto 1rem;">&#9989;</div>
@@ -1288,22 +1391,6 @@
   </div>
 </section>
 
-<!-- ── Trust Logo Strip ── -->
-<div class="trust-strip">
-  <div class="trust-strip-inner">
-    <span class="label">Quellen &amp; Partner</span>
-    <div class="trust-strip-logos">
-      <img src="https://shop.lindeverlag.at/_images_global/linde_footer.svg" alt="Linde Verlag">
-      <img src="https://logo.clearbit.com/wko.at" alt="Wirtschaftskammer Österreich">
-      <img src="https://www.incite.at/upload/design/logo.png" alt="InCite">
-      <img src="https://logo.clearbit.com/bmf.gv.at" alt="Bundesministerium für Finanzen">
-      <img src="https://logo.clearbit.com/svs.at" alt="Sozialversicherung der Selbständigen">
-      <img src="https://logo.clearbit.com/ris.bka.gv.at" alt="Rechtsinformationssystem">
-      <img src="aws.webp" alt="AWS">
-    </div>
-  </div>
-</div>
-
 <!-- ── Pricing ── -->
 <section id="pricing" class="section-gray">
   <div class="container">
@@ -1371,11 +1458,15 @@
       </div>
       <div class="faq-item">
         <div class="faq-question" onclick="this.parentElement.classList.toggle('open')">Wie sicher sind meine Daten?</div>
-        <div class="faq-answer">Alle Daten werden ausschließlich auf EU-Servern gespeichert und sind mit TLS und AES-256 verschlüsselt. Wir teilen Daten niemals mit Dritten und nutzen sie nicht für KI-Training. Der Founder Buddy arbeitet unter strengem europäischem Datenschutzrecht.</div>
+        <div class="faq-answer">Alle Daten werden ausschließlich auf EU-Servern (AWS Frankfurt, eu-central-1) gespeichert und sind mit TLS und AES-256 verschlüsselt. Mandantentrennung, API-Key-Authentifizierung und Webhook-Signaturvalidierung sichern deine Daten zusätzlich ab. Der Founder Buddy arbeitet unter strengem europäischem Datenschutzrecht.</div>
       </div>
       <div class="faq-item">
         <div class="faq-question" onclick="this.parentElement.classList.toggle('open')">Ersetzt der Buddy meinen Steuerberater?</div>
         <div class="faq-answer">Nein - und das ist Absicht. Der Founder Buddy gibt Orientierung und Handlungsempfehlungen basierend auf geprüften Quellen. Bei komplexen individuellen Fragen verweist er ausdrücklich an den zuständigen Experten.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question" onclick="this.parentElement.classList.toggle('open')">Ersetzt der Buddy eine ordentliche Rechtsberatung?</div>
+        <div class="faq-answer">Nein. Der Founder Buddy ist ausdrücklich keine Rechtsberatung und darf auch keine individuelle rechtliche Einschätzung deines Einzelfalls ersetzen. Er liefert quellenbasierte Orientierungshilfen auf Basis von Fachliteratur (u.a. Linde Verlag), WKO, BMF, SVS und RIS. Bei rechtlich komplexen oder haftungsrelevanten Fragestellungen verweist er dich aktiv an eine:n Rechtsanwält:in oder die passende Fachperson. So bekommst du eine fundierte Ausgangsbasis - die finale Beurteilung bleibt bei qualifizierten Jurist:innen.</div>
       </div>
       <div class="faq-item">
         <div class="faq-question" onclick="this.parentElement.classList.toggle('open')">Gibt es eine kostenlose Testphase?</div>
